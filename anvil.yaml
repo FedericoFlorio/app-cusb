@@ -1,9 +1,96 @@
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: false, use_email: true,
+    confirm_email: true}
+  server_config: {user_table: users}
+- source: /runtime/services/google.yml
+  client_config:
+    app_files:
+    - capabilities: {canEdit: true, canCopy: false}
+      editable: true
+      copyable: false
+      embedLink: https://drive.google.com/embeddedfolderview?id=1juG7z9RWchbxpO9ySWIryuk2poxZiOtO
+      copyRequiresWriterPermission: false
+      python_name: app
+      explicitlyTrashed: false
+      lastModifyingUser:
+        displayName: Coro Universitario
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06396664785749036610
+        emailAddress: coro.uni.sb18@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      shared: false
+      createdDate: '2023-09-23T17:29:53.077Z'
+      id: 1juG7z9RWchbxpO9ySWIryuk2poxZiOtO
+      owners:
+      - displayName: Coro Universitario
+        kind: drive#user
+        isAuthenticatedUser: true
+        permissionId: 06396664785749036610
+        emailAddress: coro.uni.sb18@gmail.com
+        picture: {url: 'https://lh3.googleusercontent.com/a/default-user=s64'}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {selfLink: 'https://www.googleapis.com/drive/v2/files/1juG7z9RWchbxpO9ySWIryuk2poxZiOtO/parents/0ALoCWSFu3biYUk9PVA',
+        id: 0ALoCWSFu3biYUk9PVA, isRoot: true, kind: drive#parentReference, parentLink: 'https://www.googleapis.com/drive/v2/files/0ALoCWSFu3biYUk9PVA'}
+      labels: {viewed: true, restricted: false, starred: false, hidden: false, trashed: false}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.folder
+      selfLink: https://www.googleapis.com/drive/v2/files/1juG7z9RWchbxpO9ySWIryuk2poxZiOtO
+      lastViewedByMeDate: '2023-09-23T17:29:53.077Z'
+      userPermission: {id: me, type: user, role: owner, kind: drive#permission, selfLink: 'https://www.googleapis.com/drive/v2/files/1juG7z9RWchbxpO9ySWIryuk2poxZiOtO/permissions/me',
+        etag: '"QwD2FzyAi7OfIRkro7gd3CFiv1I"', pendingOwner: false}
+      lastModifyingUserName: Coro Universitario
+      etag: '"MTY5NTQ5MDE5MzA3Nw"'
+      kind: drive#file
+      modifiedByMeDate: '2023-09-23T17:29:53.077Z'
+      title: App
+      version: '1'
+      appDataContents: false
+      writersCanShare: true
+      alternateLink: https://drive.google.com/drive/folders/1juG7z9RWchbxpO9ySWIryuk2poxZiOtO
+      mimeType: application/vnd.google-apps.folder
+      modifiedDate: '2023-09-23T17:29:53.077Z'
+      quotaBytesUsed: '0'
+      ownerNames: [Coro Universitario]
+  server_config: {enc_delegation_refresh_token: CujOvPr/rbHBeFWg85VP1BLtEUjryt4MH51JdtIaqGkkgGSIVblgfUn4Cr/c8BFzdlIdLkyy/e5wI+8gk3lKVpXSBArT0BRkSjpWMFtskmSPXPnzj5CWtVAze0NKhqW8wNT5k30t/f66TIw2ABzAJ7t0hBb8N6S33jnHVQ4JFUVnPu2mxXT3AmOURwRIoAmXMS39xfhFL0cEgd4CnOYVFcimGteT7lS5CM+iiqCkTchBZI1ngYDmCmxszhG9dsCeY16KPuTVcp9PUiG0NHMWYJdxnGxxjg6c3ZWiglWJFGp9GvpfjeqIBJREastIrA==}
+startup: {type: form, module: main}
+package_name: App_CUSB
 allow_embedding: false
-package_name: M3_App_1
-name: M3 App 1
-startup_form: Form1
-renamed: true
+name: App CUSB
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
-dependencies: []
-services: []
+startup_form: null
+db_schema:
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {order: 1, width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 4, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 5, width: 200}
+      type: bool
+    - name: signed_up
+      admin_ui: {order: 6, width: 200}
+      type: datetime
+    title: Users
+renamed: true
