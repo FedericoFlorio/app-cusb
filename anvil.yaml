@@ -92,5 +92,25 @@ db_schema:
     - name: signed_up
       admin_ui: {order: 6, width: 200}
       type: datetime
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
+  indice:
+    title: indice
+    client: full
+    server: full
+    columns:
+    - name: titolo
+      admin_ui: {width: 200}
+      type: string
+    - name: tonalita
+      admin_ui: {width: 200}
+      type: number
+    - name: modo
+      admin_ui: {width: 200}
+      type: string
+    - name: indirizzo
+      admin_ui: {width: 200}
+      type: string
 renamed: true

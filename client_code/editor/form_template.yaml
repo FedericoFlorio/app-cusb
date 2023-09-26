@@ -4,9 +4,38 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: YQDGDB, title: Titolo, data_key: column_1, $$hashKey: 'object:2169',
+        width: '425'}
+      - {id: NYVQZA, title: Modifica, data_key: column_2, $$hashKey: 'object:2170',
+        width: '75', expand: false}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: indice
+    layout_properties: {grid_position: 'BLIAAW,BSAOVJ'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: editor.RowTemplate1}
+      name: repeating_panel_1
+      layout_properties: {}
+    data_bindings:
+    - {property: tag, code: 'self.item['''']'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
