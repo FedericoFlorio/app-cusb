@@ -98,7 +98,7 @@ db_schema:
     title: Users
   indice:
     title: indice
-    client: full
+    client: none
     server: full
     columns:
     - name: titolo
@@ -110,7 +110,5 @@ db_schema:
     - name: modo
       admin_ui: {width: 200}
       type: string
-    - name: indirizzo
-      admin_ui: {width: 200}
-      type: string
+uplink_visible: true
 renamed: true
