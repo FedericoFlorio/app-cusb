@@ -14,9 +14,11 @@ class editor(editorTemplate):
     self.init_components(**properties)
     ind = anvil.server.call('get_indice')
     self.lista.items = ind
-    #anvil.users.login_with_form()
+    anvil.users.login_with_form()
     self.modo.items = ["M","m"]
     self.modo.selected_value = None
+    self.tonalita.items = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
+    self.tonalita.selected_value = None
 
     # Any code you write here will run before the form opens.
 
@@ -54,6 +56,9 @@ class editor(editorTemplate):
         alert("Nome canto non valido: il canto esiste già")
 
     if es == False:
+      self.label_1.visible = True
+      self.label_tonalita.visible = True
+      self.label_modo.visible = True
       self.tonalita.visible = True
       self.modo.visible = True
       self.carica_OK.visible = True
@@ -65,7 +70,7 @@ class editor(editorTemplate):
   def carica_OK_click(self, **event_args):
     """This method is called when the button is clicked"""
     titolo = self.get_title()
-    tonalita = int(self.tonalita.text)
+    tonalita = self.tonalita.items.index(self.tonalita.selected_value)
     modo = self.modo.selected_value
     
     app_files.app.create_folder(titolo)
@@ -87,8 +92,7 @@ class editor(editorTemplate):
         alert("Nome canto non valido: il canto esiste già")
 
     if es == False:
-      open_form("new_song",titolo=self.nuovo_titolo.text)
+      open_form("new_song",titolo=titolo)
     else:
       open_form("editor")
-    # open_form("Form2")
     pass

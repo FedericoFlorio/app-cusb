@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"XATOCZ":45,"JSKGSV":15,"HJJVCX":50,"JIBCXO":10,"JJVBWR":25,"OQHAAB":10}'}
+  properties: {col_widths: '{"XATOCZ":45,"JSKGSV":15,"HJJVCX":50,"JIBCXO":10,"OQHAAB":8,"RVRTRH":17,"FOKGWL":17,"HVAPFT":9,"QAOPSN":9}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -67,13 +67,49 @@ components:
     name: crea_OK
     layout_properties: {grid_position: 'XREDOR,JIBCXO'}
     event_bindings: {click: crea_OK_click}
-  - type: TextBox
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: Tonalità (numero),
-      border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: false, text: 'Tonalità:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_tonalita
+    layout_properties: {grid_position: 'KGHNCH,HVAPFT'}
+  - type: DropDown
+    properties:
+      role: outlined
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: false
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
     name: tonalita
-    layout_properties: {grid_position: 'KGHNCH,JJVBWR'}
+    layout_properties: {grid_position: 'KGHNCH,RVRTRH'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'KGHNCH,QZXEHR'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: false, text: 'Modo:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_modo
+    layout_properties: {grid_position: 'KGHNCH,QAOPSN'}
   - type: DropDown
     properties:
       role: outlined
