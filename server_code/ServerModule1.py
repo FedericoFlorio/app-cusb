@@ -40,16 +40,17 @@ def check_format(s):
   beg = s[2]
   end = s[len(s)-1]
   body = s[3:len(s)-1]
-  if title.split("")[0] != "\title":
+  if title.split()[0] != "\head":
     err = 1
-  if intro.split("")[0] != "\intro":
+  if intro.split()[0] != "\intro":
     err = 2
-  if beg.split("")[0] != "\begin":
+  if beg.split()[0] != "\start":
+    print(beg.split()[0])
     err = 3
-  if end.split("")[0] != "\end":
+  if end.split()[0] != "\end":
     err = 4
   for line in body:
-    w = line.split("")[0]
-    if w != "\t" or w != "\a" or w != "$" or w != "$$":
+    w = line.split()[0]
+    if w != "\l" and w != "\c" and w != "$" and w != "$$":
       err = 5
   return err

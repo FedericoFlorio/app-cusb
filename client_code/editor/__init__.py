@@ -16,7 +16,7 @@ class editor(editorTemplate):
     ind = anvil.server.call('get_indice')
     self.lista.items = ind
     # Login
-    anvil.users.login_with_form()
+    # anvil.users.login_with_form()
     # Creazione tasti
     self.modo.items = ["M","m"]
     self.modo.selected_value = None
@@ -49,40 +49,43 @@ class editor(editorTemplate):
 
   def carica_change(self, file, **event_args): # Rivela le opzioni per caricare un nuovo file e controlla il file caricato
     """This method is called when a new file is loaded into this FileLoader"""
-    titolo = self.get_title()
-    # Controllo sull'esistenza del canto
-    rows = anvil.server.call('get_indice')
-    es = False
-    for canto in rows:
-      if canto["titolo"] == titolo:
-        es = True
-        alert("Nome canto non valido: il canto esiste già")
-
-    # Controllo sul formato del file
-    with open(self.carica.file,"r") as file:
-      text = file.readlines()
-    err = anvil.server.call('check_format',text)
-    if err==1:
-      alert("Errore nel titolo")
-    elif err==2:
-      alert("Errore nell'intro")
-    elif err==3:
-      alert("Errore nel begin")
-    elif err==4:
-      alert("Errore nell'end")
-    elif err==5:
-      alert("Errore nel corpo")
-
-    # Mostra le opzioni per tonalità e modo
-    if es==False and err==0:
-      self.label_1.visible = True
-      self.label_tonalita.visible = True
-      self.label_modo.visible = True
-      self.tonalita.visible = True
-      self.modo.visible = True
-      self.carica_OK.visible = True
-    else:
-      open_form("editor")
+    if self.carica.file is not None:
+      titolo = self.get_title()
+      # Controllo sull'esistenza del canto
+      rows = anvil.server.call('get_indice')
+      es = False
+      for canto in rows:
+        if canto["titolo"] == titolo:
+          es = True
+          alert("Nome canto non valido: il canto esiste già")
+  
+      # Controllo sul formato del file
+      file_content = self.carica.file.get_bytes()
+      text = file_content.decode('utf-8').split("\n")
+      # with open(titolo+".txt","r") as file:
+      #   text = file.readlines()
+      err = anvil.server.call('check_format',text)
+      if err==1:
+        alert("Errore nel titolo")
+      elif err==2:
+        alert("Errore nell'intro")
+      elif err==3:
+        alert("Errore nel begin")
+      elif err==4:
+        alert("Errore nell'end")
+      elif err==5:
+        alert("Errore nel corpo")
+  
+      # Mostra le opzioni per tonalità e modo
+      if es==False and err==0:
+        self.label_1.visible = True
+        self.label_tonalita.visible = True
+        self.label_modo.visible = True
+        self.tonalita.visible = True
+        self.modo.visible = True
+        self.carica_OK.visible = True
+      else:
+        open_form("editor")
 
     pass
 

@@ -20,16 +20,16 @@ components:
       foreground: '', visible: true, font_size: null, content: '- Scrivere gli accordi
         in MAIUSCOLO
 
-        - Tutto il corpo del canto deve stare tra "\begin" e "\end"
+        - Tutto il corpo del canto deve stare tra "\start" e "\end"
 
-        - le righe di accordi devono iniziare con "\a" e le righe di testo devono
-        iniziare con "\t"
+        - le righe di accordi devono iniziare con "\c" e le righe di testo devono
+        iniziare con "\l"
 
         - Per saltare una riga inserire una riga con scritto "$"
 
-        - Per indentare/disindentare inserire una riga con scritto "$$" (da usare
-        all''inizio e alla fine del ritornello)', font: '', spacing_above: small,
-      spacing_below: small, data: null, background: '', format: markdown}
+        - Per indentare/deindentare inserire una riga con scritto "$$" (da usare all''inizio
+        e alla fine del ritornello)', font: '', spacing_above: small, spacing_below: small,
+      data: null, background: '', format: markdown}
     name: legenda1
     layout_properties: {grid_position: 'ZQEVHH,XVSARA'}
     components: []
@@ -98,10 +98,10 @@ components:
   - type: TextArea
     properties: {role: outlined, align: left, height: 311.46299999999997, tooltip: '',
       placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: "\\\
-        title \n\\intro \n\\begin\n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\
-        \\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\\
-        a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a\
-        \ \n\\t \n\\a \n\\t \n\\a \n\\t \n\\a \n\\t \n\\end", font_size: null, auto_expand: true,
+        head \n\\intro \n\\start\n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\
+        \\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\\
+        c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c\
+        \ \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\end", font_size: null, auto_expand: true,
       font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
       bold: false, underline: false}
     name: editor
