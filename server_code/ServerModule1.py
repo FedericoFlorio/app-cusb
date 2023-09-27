@@ -31,3 +31,7 @@ def new_row_indice(titolo,tonalita,modo):
 def create_text_file(file_name, file_content):
     with open(file_name, 'w') as file:
         file.write(file_content)
+
+# @anvil.server.callable
+# def editor()
+#   return anvil.assets.editor.call("editor.html")
