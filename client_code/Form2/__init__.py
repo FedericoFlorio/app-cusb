@@ -12,5 +12,7 @@ class Form2(Form2Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    self.assets.editor.editor.html
+    self.assets.editor.editor_func.js
     # Any code you write here will run before the form opens.
+    edit = anvil.
