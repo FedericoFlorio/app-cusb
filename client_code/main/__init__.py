@@ -15,10 +15,10 @@ class main(mainTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def button_login_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.users.login_with_form()
-    pass
+  # def button_login_click(self, **event_args):
+  #   """This method is called when the button is clicked"""
+  #   anvil.users.login_with_form()
+  #   pass
 
   def button_editor_click(self, **event_args):
     """This method is called when the button is clicked"""

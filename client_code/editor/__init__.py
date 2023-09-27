@@ -12,9 +12,12 @@ class editor(editorTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    # Visualizzazione indice
     ind = anvil.server.call('get_indice')
     self.lista.items = ind
+    # Login
     anvil.users.login_with_form()
+    # Creazione tasti
     self.modo.items = ["M","m"]
     self.modo.selected_value = None
     self.tonalita.items = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
@@ -22,21 +25,21 @@ class editor(editorTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def get_title(self):
+  def get_title(self):  # Estrae il titolo di un file caricato
     f = self.carica.file
     if f != None:
       titolo = f.name
       titolo = titolo.upper().replace(".TXT","")
       return titolo
   
-  def nuovo_click(self, **event_args):
+  def nuovo_click(self, **event_args):  # Rivela i pulsanti per un nuovo file
     """This method is called when the button is clicked"""
     self.nuovo.visible = False
     self.crea.visible = True
     self.carica.visible = True
     pass
 
-  def crea_click(self, **event_args):
+  def crea_click(self, **event_args): # Rivela le opzioni per creare un nuovo file
     """This method is called when the button is clicked"""
     self.crea.visible = False
     self.carica.visible = False
@@ -44,10 +47,10 @@ class editor(editorTemplate):
     self.crea_OK.visible = True
     pass
 
-  def carica_change(self, file, **event_args):
+  def carica_change(self, file, **event_args): # Rivela le opzioni per caricare un nuovo file e controlla il file caricato
     """This method is called when a new file is loaded into this FileLoader"""
     titolo = self.get_title()
-    
+    # Controllo sull'esistenza del canto
     rows = anvil.server.call('get_indice')
     es = False
     for canto in rows:
@@ -55,6 +58,7 @@ class editor(editorTemplate):
         es = True
         alert("Nome canto non valido: il canto esiste già")
 
+    # Controllo sul formato del file
     with open(self.carica.file,"r") as file:
       text = file.readlines()
     err = anvil.server.call('check_format',text)
@@ -69,6 +73,7 @@ class editor(editorTemplate):
     elif err==5:
       alert("Errore nel corpo")
 
+    # Mostra le opzioni per tonalità e modo
     if es==False and err==0:
       self.label_1.visible = True
       self.label_tonalita.visible = True
@@ -81,12 +86,13 @@ class editor(editorTemplate):
 
     pass
 
-  def carica_OK_click(self, **event_args):
+  def carica_OK_click(self, **event_args): # Carica il nuovo file
     """This method is called when the button is clicked"""
     titolo = self.get_title()
     tonalita = self.tonalita.items.index(self.tonalita.selected_value)
     modo = self.modo.selected_value
-    
+
+    # Creazione nuova cartella Drive e caricamento file
     app_files.app.create_folder(titolo)
     folder = app_files.app.get(titolo)
     nuovo_file = folder.create_file(titolo+".txt",self.carica.file)
@@ -95,9 +101,11 @@ class editor(editorTemplate):
     open_form("editor")
     pass
 
-  def crea_OK_click(self, **event_args):
+  def crea_OK_click(self, **event_args): # Apre l'editor per un nuovo canto
     """This method is called when the button is clicked"""
     titolo = self.nuovo_titolo.text.upper()
+
+    # Controllo esistenza canto
     rows = anvil.server.call('get_indice')
     es = False
     for canto in rows:

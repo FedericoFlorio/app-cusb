@@ -23,8 +23,9 @@ class new_song(new_songTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def salva_click(self, **event_args):
+  def salva_click(self, **event_args): # Controlla tutto e salva il file
     """This method is called when the button is clicked"""
+    # Controllo formato del file
     err = anvil.server.call('check_format',self.editor.text)
     if err==1:
       alert("Errore nel titolo")
@@ -37,9 +38,12 @@ class new_song(new_songTemplate):
     elif err==5:
       alert("Errore nel corpo")
 
-    if self.tonalita.selected_value != None and self.modo.selected_value != None
-      
-    if self.tonalita.selected_value != None and self.modo.selected_value != None and err==0:
+    # Controllo tonalità e modo
+    if self.tonalita.selected_value == None or self.modo.selected_value == None:
+      alert("Inserire tonalità e modo")
+
+    # Creazione nuovo file
+    if err==0:
       titolo = self.titolo.text
       app_files.app.create_folder(titolo)
       folder = app_files.app.get(titolo)
@@ -47,7 +51,6 @@ class new_song(new_songTemplate):
       tonalita = self.tonalita.items.index(self.tonalita.selected_value)
       modo = self.modo.selected_value
       nr = anvil.server.call('new_row_indice',titolo,tonalita,modo)
-    else:
-      alert("Inserire tonalità e modo")
+      open_form("editor")
     pass
 
