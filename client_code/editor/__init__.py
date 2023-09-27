@@ -59,8 +59,9 @@ class editor(editorTemplate):
         alert("Nome canto non valido: il canto esiste già")
 
     # Controllo sul formato del file
-    with open(self.carica.file,"r") as file:
-      text = file.readlines()
+    # with open(self.carica.file,"r") as file:
+    #   text = file.readlines()
+    text = self.carica.file.readlines()
     err = anvil.server.call('check_format',text)
     if err==1:
       alert("Errore nel titolo")
