@@ -25,7 +25,21 @@ class new_song(new_songTemplate):
 
   def salva_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if self.tonalita.selected_value != None and self.modo.selected_value != None:
+    err = anvil.server.call('check_format',self.editor.text)
+    if err==1:
+      alert("Errore nel titolo")
+    elif err==2:
+      alert("Errore nell'intro")
+    elif err==3:
+      alert("Errore nel begin")
+    elif err==4:
+      alert("Errore nell'end")
+    elif err==5:
+      alert("Errore nel corpo")
+
+    if self.tonalita.selected_value != None and self.modo.selected_value != None
+      
+    if self.tonalita.selected_value != None and self.modo.selected_value != None and err==0:
       titolo = self.titolo.text
       app_files.app.create_folder(titolo)
       folder = app_files.app.get(titolo)

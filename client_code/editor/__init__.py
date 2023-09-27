@@ -55,7 +55,21 @@ class editor(editorTemplate):
         es = True
         alert("Nome canto non valido: il canto esiste già")
 
-    if es == False:
+    with open(self.carica.file,"r") as file:
+      text = file.readlines()
+    err = anvil.server.call('check_format',text)
+    if err==1:
+      alert("Errore nel titolo")
+    elif err==2:
+      alert("Errore nell'intro")
+    elif err==3:
+      alert("Errore nel begin")
+    elif err==4:
+      alert("Errore nell'end")
+    elif err==5:
+      alert("Errore nel corpo")
+
+    if es==False and err==0:
       self.label_1.visible = True
       self.label_tonalita.visible = True
       self.label_modo.visible = True

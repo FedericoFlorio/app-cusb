@@ -32,6 +32,24 @@ def create_text_file(file_name, file_content):
     with open(file_name, 'w') as file:
         file.write(file_content)
 
-# @anvil.server.callable
-# def editor()
-#   return anvil.assets.editor.call("editor.html")
+@anvil.server.callable
+def check_format(s):
+  err = 0
+  title = s[0]
+  intro = s[1]
+  beg = s[2]
+  end = s[len(s)-1]
+  body = s[3:len(s)-1]
+  if title.split(" ")[0] != "\title":
+    err = 1
+  if intro.split(" ")[0] != "\intro":
+    err = 2
+  if beg.split(" ")[0] != "\begin":
+    err = 3
+  if end.split(" ")[0] != "\end":
+    err = 4
+  for line in body:
+    w = line.split(" ")[0]
+    if w != "\t" or w != "\a" or w != "$" or w != "$$":
+      err = 5
+  return err
