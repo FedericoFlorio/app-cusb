@@ -15,4 +15,5 @@ components:
     underline: false, icon: 'fa:pencil'}
   name: button_1
   layout_properties: {grid_position: 'SCKOBH,XPKCQJ'}
+  event_bindings: {click: button_1_click}
 is_package: true
