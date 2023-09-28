@@ -54,3 +54,24 @@ def check_format(s):
     if w != "\l" and w != "\c" and w != "$" and w != "$$":
       err = 5
   return err
+
+@anvil.server.callable
+def mod_row_indice(old,new,ton,mod):
+  ind = get_indice()
+  for row in ind:
+    if row['titolo'] == old:
+      row['tonalita'] = ton
+      row['modo'] = mod
+      row['titolo'] = new
+
+@anvil.server.callable
+def del_row_indice(titolo):
+  ind = get_indice()
+  for row in ind:
+    if row["titolo"] == titolo:
+      row.delete()
+
+@anvil.server.callable
+def sort_indice():
+  ind = get_indice()
+  

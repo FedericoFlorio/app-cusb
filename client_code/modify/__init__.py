@@ -29,6 +29,7 @@ class modify(modifyTemplate):
     text = f_content.decode('utf-8')
     self.editor.text = text
 
+    # Cerca la tonalità e il modo nell'indice e lo inserisce nei DropDown
     ind = anvil.server.call('get_indice')
     for row in ind:
       if row['titolo'] == titolo_vecchio:
@@ -59,26 +60,27 @@ class modify(modifyTemplate):
 
     # Salvataggio file
     if err==0:
-      titolo = self.titolo.text
+      # Salvataggio del nuovo file e eliminazione del vecchio
+      titolo = self.titolo.text.upper()
       folder = app_files.app.get(titolo_vecchio)
-      # print(titolo_vecchio)
-      f = folder.get(titolo_vecchio+".txt")
-      f.delete()
-      nuovo_file = folder.create_file(titolo+".txt",self.editor.text)
-      new_folder = app_files.app.create_folder(titolo)
-      # folder.move(new_folder)
-      for file in folder.files:
-        file.move(new_folder)
-      folder.delete()
+      old_file = folder.get(titolo_vecchio+".txt")
+      old_file.delete()
+      new_file = folder.create_file(titolo+".txt",self.editor.text)
+
+      # Se il titolo è stato cambiato, corregge l'indice e la cartella drive (trasferendo tutti i file)
+      if titolo != titolo_vecchio:
+        new_folder = app_files.app.create_folder(titolo)
+        for file in folder.list_files():
+          new_folder.create_file(file["title"].replace(titolo_vecchio,titolo),file)
+          file.delete()
+        folder.delete()
       
       tonalita = self.tonalita.items.index(self.tonalita.selected_value)
       modo = self.modo.selected_value
+
+      tonalita_nuova = self.tonalita.items.index(self.tonalita.selected_value)
+      modo_nuovo = self.modo.selected_value
+      anvil.server.call('mod_row_indice',titolo_vecchio,titolo,tonalita_nuova,modo_nuovo)
       
-      ind = anvil.server.call('get_indice')
-      for row in ind:
-        if row['titolo'] == titolo_vecchio:
-          row['tonalita'] = self.tonalita.items.index(self.tonalita.selected_value)
-          row['modo'] = self.modo.selected_value
-          row['titolo'] = self.titolo.text
       open_form("editor")
     pass

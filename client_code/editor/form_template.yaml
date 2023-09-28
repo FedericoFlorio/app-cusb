@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"XATOCZ":45,"JSKGSV":15,"HJJVCX":50,"JIBCXO":10,"OQHAAB":8,"RVRTRH":17,"FOKGWL":17,"HVAPFT":9,"QAOPSN":9}'}
+  properties: {col_widths: '{"XATOCZ":45,"JSKGSV":20,"HJJVCX":50,"JIBCXO":10,"OQHAAB":8,"RVRTRH":17,"FOKGWL":17,"HVAPFT":9,"QAOPSN":9,"IFGYEV":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -159,6 +159,13 @@ components:
       underline: false, icon: ''}
     name: label_2
     layout_properties: {grid_position: 'TYVNHY,JSKGSV'}
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Elimina, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_3
+    layout_properties: {grid_position: 'TYVNHY,IFGYEV'}
   - type: RepeatingPanel
     properties: {item_template: editor.ItemTemplate4}
     name: lista
