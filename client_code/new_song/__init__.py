@@ -26,7 +26,7 @@ class new_song(new_songTemplate):
   def salva_click(self, **event_args): # Controlla tutto e salva il file
     """This method is called when the button is clicked"""
     # Controllo formato del file
-    err = anvil.server.call('check_format',self.editor.text)
+    err = anvil.server.call('check_format',self.editor.text.split("\n"))
     if err==1:
       alert("Errore nel titolo")
     elif err==2:
