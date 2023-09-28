@@ -21,7 +21,8 @@ def say_hello(name):
 
 @anvil.server.callable  # Cerca un canto nella tabella indice
 def get_indice():
-  return app_tables.indice.search()
+  return app_tables.indice.search(tables.order_by("titolo"),
+                                  tables.order_by("tonalita"))
 
 @anvil.server.callable  # Aggiunge una riga alla tabella indice
 def new_row_indice(titolo,tonalita,modo):
@@ -70,8 +71,3 @@ def del_row_indice(titolo):
   for row in ind:
     if row["titolo"] == titolo:
       row.delete()
-
-@anvil.server.callable
-def sort_indice():
-  ind = get_indice()
-  

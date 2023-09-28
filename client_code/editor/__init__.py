@@ -14,7 +14,7 @@ class editor(editorTemplate):
     self.init_components(**properties)
     # Visualizzazione indice
     ind = anvil.server.call('get_indice')
-    self.lista.items = ind(tables.order_by("titolo",ascending=True))
+    self.lista.items = ind
     # Login
     # anvil.users.login_with_form()
     # Creazione tasti

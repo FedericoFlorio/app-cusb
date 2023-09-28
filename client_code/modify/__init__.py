@@ -84,3 +84,12 @@ class modify(modifyTemplate):
       
       open_form("editor")
     pass
+
+  def annulla_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    c = confirm(title="Sicuro di voler uscire? Tutte le modifiche andranno perse",
+               buttons=[("Sì",True),("No",False)])
+    if c:
+      open_form("editor")
+    pass
+
