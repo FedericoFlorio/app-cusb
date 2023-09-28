@@ -1,0 +1,127 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Legenda, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: legenda
+    layout_properties: {grid_position: 'SRXYNP,XOJOWP'}
+  - type: RichText
+    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+      foreground: '', visible: true, font_size: null, content: '- Scrivere gli accordi
+        in MAIUSCOLO
+
+        - Tutto il corpo del canto deve stare tra "\start" e "\end"
+
+        - le righe di accordi devono iniziare con "\c" e le righe di testo devono
+        iniziare con "\l"
+
+        - Per saltare una riga inserire una riga con scritto "$"
+
+        - Per indentare/deindentare inserire una riga con scritto "$$" (da usare all''inizio
+        e alla fine del ritornello)', font: '', spacing_above: small, spacing_below: small,
+      data: null, background: '', format: markdown}
+    name: legenda1
+    layout_properties: {grid_position: 'ZQEVHH,XVSARA'}
+    components: []
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Tonalità:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_tonalita
+    layout_properties: {grid_position: 'HIEHRC,GILKLI'}
+  - type: DropDown
+    properties:
+      role: outlined
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
+    name: tonalita
+    layout_properties: {grid_position: 'HIEHRC,NVVKVL'}
+  - type: Label
+    properties: {}
+    name: label_1
+    layout_properties: {grid_position: 'HIEHRC,ACVYNA'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Modo:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_modo
+    layout_properties: {grid_position: 'HIEHRC,ANIHOT'}
+  - type: DropDown
+    properties:
+      role: outlined
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: false
+    name: modo
+    layout_properties: {grid_position: 'HIEHRC,SZFKCP'}
+  - type: TextArea
+    properties: {role: outlined, align: left, height: 311.46299999999997, tooltip: '',
+      placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: "\\\
+        head \n\\intro \n\\start\n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\
+        \\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\\
+        c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c\
+        \ \n\\l \n\\c \n\\l \n\\c \n\\l \n\\c \n\\l \n\\end", font_size: null, auto_expand: true,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, underline: false}
+    name: editor
+    layout_properties: {grid_position: 'KKJERZ,RRMLAN'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: Label
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: titolo
+  layout_properties: {slot: title}
+- type: Button
+  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: Salva, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:floppy-o'}
+  name: salva
+  layout_properties: {slot: default}
+  event_bindings: {click: salva_click}
