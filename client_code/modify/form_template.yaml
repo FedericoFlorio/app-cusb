@@ -4,9 +4,14 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {}
+    name: label_1
+    layout_properties: {grid_position: 'KIWTZY,LKIDRM'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
