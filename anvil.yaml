@@ -66,6 +66,12 @@ name: App CUSB
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
 startup_form: null
+native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">'}
 db_schema:
   users:
     client: none

@@ -121,3 +121,9 @@ class editor(editorTemplate):
     else:
       open_form("editor")
     pass
+
+  def home_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("main")
+    pass
+

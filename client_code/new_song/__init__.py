@@ -15,6 +15,7 @@ class new_song(new_songTemplate):
     if "titolo" in properties:
       titolo = properties["titolo"]
 
+    self.editor.font = "Roboto Mono"
     self.titolo.text = titolo
     self.modo.items = ["M","m"]
     self.modo.selected_value = None
@@ -53,4 +54,22 @@ class new_song(new_songTemplate):
       nr = anvil.server.call('new_row_indice',titolo,tonalita,modo)
       open_form("editor")
     pass
+
+  def home_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    c = confirm(title="Sicuro di voler uscire? Tutte le modifiche andranno perse",
+               buttons=[("Sì",True),("No",False)])
+    if c:
+      open_form("main")
+    pass
+
+  def back_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    c = confirm(title="Sicuro di voler uscire? Tutte le modifiche andranno perse",
+               buttons=[("Sì",True),("No",False)])
+    if c:
+      open_form("editor")
+    pass
+
+
 

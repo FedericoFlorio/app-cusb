@@ -22,12 +22,12 @@ class main(mainTemplate):
 
   def button_editor_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('editor')
+    open_form("editor")
     pass
 
   def button_libretto_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('say_hello',name='Federico')
+    open_form("libretto")
     pass
 
 

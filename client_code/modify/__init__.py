@@ -27,6 +27,7 @@ class modify(modifyTemplate):
     f = folder.get(titolo_vecchio+".txt")
     f_content = f.get_bytes()
     text = f_content.decode('utf-8')
+    self.editor.font = "Roboto Mono"
     self.editor.text = text
 
     # Cerca la tonalità e il modo nell'indice e lo inserisce nei DropDown
@@ -92,4 +93,22 @@ class modify(modifyTemplate):
     if c:
       open_form("editor")
     pass
+
+  def home_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    c = confirm(title="Sicuro di voler uscire? Tutte le modifiche andranno perse",
+               buttons=[("Sì",True),("No",False)])
+    if c:
+      open_form("main")
+    pass
+
+  def back_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    c = confirm(title="Sicuro di voler uscire? Tutte le modifiche andranno perse",
+               buttons=[("Sì",True),("No",False)])
+    if c:
+      open_form("editor")
+    pass
+
+
 
