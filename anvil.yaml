@@ -116,5 +116,19 @@ db_schema:
     - name: modo
       admin_ui: {width: 200}
       type: string
+  canti_domenica:
+    client: full
+    server: full
+    columns:
+    - name: titolo
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: num
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: tonalita
+      admin_ui: {width: 200, order: 2}
+      type: string
+    title: canti_domenica
 uplink_visible: true
 renamed: true

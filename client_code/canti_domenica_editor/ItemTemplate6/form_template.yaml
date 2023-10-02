@@ -1,0 +1,24 @@
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"QFSPAD":50,"STVEAQ":10}',
+    spacing_below: small, background: 'theme:On Primary'}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: 'theme:On Primary', bold: false, underline: false,
+    icon: ''}
+  name: titolo
+  layout_properties: {grid_position: 'MRAOLL,QFSPAD'}
+  data_bindings:
+  - {property: text, code: 'self.item[''titolo'']'}
+- type: Button
+  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:plus'}
+  name: add
+  layout_properties: {grid_position: 'MRAOLL,STVEAQ'}
+  event_bindings: {click: add_click}
+is_package: true

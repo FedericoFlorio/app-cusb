@@ -65,9 +65,44 @@ def mod_row_indice(old,new,ton,mod):
       row['modo'] = mod
       row['titolo'] = new
 
-@anvil.server.callable
+@anvil.server.callable  # Cancella una riga della tabella indice
 def del_row_indice(titolo):
   ind = get_indice()
   for row in ind:
     if row["titolo"] == titolo:
       row.delete()
+
+@anvil.server.callable  # Restituisce i canti della domenica dalla tabella canti_domenica
+def get_domenica():
+  return app_tables.canti_domenica.search(tables.order_by("num"))
+
+@anvil.server.callable  # Aggiunge una riga alla tabella canti_domenica
+def new_row_domenica(titolo,num):
+  return app_tables.canti_domenica.add_row(titolo=titolo,num=num)
+
+@anvil.server.callable  #cancella una riga della tabella canti_domenica
+def del_row_domenica(titolo):
+  dom = get_domenica()
+  for row in dom:
+    if row["titolo"] == titolo:
+      row.delete()
+
+@anvil.server.callable  # Cancella le righe della tabella canti_domenica
+def reset_domenica():
+  app_tables.canti_domenica.delete_all_rows()
+
+@anvil.server.callable  # Imposta l'ordine dei canti della domenica
+def num_domenica(titolo,num):
+  dom = get_domenica()
+  for row in dom:
+    if row["titolo"] == titolo:
+      row["num"] = num
+
+@anvil.server.callable
+def check_domenica(lista):
+  ordine = [lista["num"] for i in range(len(lista))]
+  ordine.sort()
+  for i in range(len(ordine)-1):
+    if ordine[i] == 0 or ordine[i] == ordine[i+1]:
+      return False
+  return True

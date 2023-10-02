@@ -127,3 +127,7 @@ class editor(editorTemplate):
     open_form("main")
     pass
 
+  def canti_domenica_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("canti_domenica_editor")
+    pass

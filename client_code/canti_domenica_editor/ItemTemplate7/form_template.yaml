@@ -1,0 +1,57 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"WCJIZA":50,"FPVWXE":10}'}
+components:
+- type: Label
+  properties: {}
+  name: titolo
+  layout_properties: {grid_position: 'MTSHBK,WCJIZA'}
+  data_bindings:
+  - {property: text, code: 'self.item[''titolo'']'}
+- type: DropDown
+  properties:
+    role: outlined
+    align: full
+    tooltip: ''
+    placeholder: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    items: []
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: ''
+    bold: false
+    underline: false
+    include_placeholder: false
+  name: tonalita
+  layout_properties: {grid_position: 'MTSHBK,JFARQK'}
+  data_bindings: []
+- type: DropDown
+  properties:
+    role: outlined
+    align: full
+    tooltip: ''
+    placeholder: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    items: []
+    visible: true
+    font_size: null
+    font: ''
+    spacing_above: small
+    spacing_below: small
+    italic: false
+    background: ''
+    bold: false
+    underline: false
+    include_placeholder: false
+  name: num
+  layout_properties: {grid_position: 'MTSHBK,FPVWXE'}
+  data_bindings: []
+is_package: true
