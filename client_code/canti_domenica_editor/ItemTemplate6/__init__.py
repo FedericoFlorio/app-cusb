@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .. import module
 
 class ItemTemplate6(ItemTemplate6Template):
   def __init__(self, **properties):
@@ -23,15 +24,30 @@ class ItemTemplate6(ItemTemplate6Template):
 
   def add_click(self, **event_args):
     """This method is called when the button is clicked"""
+    ind = anvil.server.call("get_indice")
+    for row in ind:
+      if row["titolo"] == self.titolo.text:
+        tonalita = row["tonalita"]
+        modo = row["modo"]
+        
+    canto = {"titolo": self.titolo.text,
+             "tonalita": tonalita,
+             "modo": modo,
+             "num": 0}
+
     if self.add.icon == "fa:plus":
       self.titolo.background = "theme:Primary Container"
       self.background = "theme:Primary Container"
       self.add.icon = "fa:minus"
-      anvil.server.call("new_row_domenica",self.titolo.text,0)
+      module.domenica.append(canto)
+      get_open_form().refresh()
     else:
       self.titolo.background = "theme:On Primary"
       self.background = "theme:On Primary"
       self.add.icon = "fa:plus"
-      anvil.server.call("del_row_domenica",self.titolo.text)
+      for i in range(len(module.domenica)):
+        if module.domenica[i]["titolo"] == canto["titolo"]:
+          del module.domenica[i]
+          break
+      get_open_form().refresh()
     pass
-

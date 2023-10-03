@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"WCJIZA":50,"FPVWXE":10}'}
+  properties: {col_widths: '{"WCJIZA":40,"FPVWXE":5,"JFARQK":10,"AGGEMI":5}'}
 components:
 - type: Label
   properties: {}
@@ -31,6 +31,13 @@ components:
   name: tonalita
   layout_properties: {grid_position: 'MTSHBK,JFARQK'}
   data_bindings: []
+  event_bindings: {change: tonalita_change}
+- type: Label
+  properties: {}
+  name: modo
+  layout_properties: {grid_position: 'MTSHBK,AGGEMI'}
+  data_bindings:
+  - {property: text, code: 'self.item[''modo'']'}
 - type: DropDown
   properties:
     role: outlined
@@ -54,4 +61,5 @@ components:
   name: num
   layout_properties: {grid_position: 'MTSHBK,FPVWXE'}
   data_bindings: []
+  event_bindings: {change: num_change}
 is_package: true

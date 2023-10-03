@@ -77,8 +77,8 @@ def get_domenica():
   return app_tables.canti_domenica.search(tables.order_by("num"))
 
 @anvil.server.callable  # Aggiunge una riga alla tabella canti_domenica
-def new_row_domenica(titolo,num):
-  return app_tables.canti_domenica.add_row(titolo=titolo,num=num)
+def new_row_domenica(titolo,tonalita,modo,num):
+  return app_tables.canti_domenica.add_row(titolo=titolo, tonalita=tonalita, modo=modo, num=num)
 
 @anvil.server.callable  #cancella una riga della tabella canti_domenica
 def del_row_domenica(titolo):

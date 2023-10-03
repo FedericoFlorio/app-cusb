@@ -124,11 +124,14 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     - name: num
-      admin_ui: {width: 200, order: 1}
+      admin_ui: {order: 4, width: 200}
       type: number
-    - name: tonalita
-      admin_ui: {width: 200, order: 2}
+    - name: modo
+      admin_ui: {width: 200, order: 3}
       type: string
+    - name: tonalita
+      admin_ui: {order: 1.5, width: 200}
+      type: number
     title: canti_domenica
 uplink_visible: true
 renamed: true

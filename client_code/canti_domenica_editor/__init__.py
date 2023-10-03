@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .. import module
 
 class canti_domenica_editor(canti_domenica_editorTemplate):
   def __init__(self, **properties):
@@ -14,8 +15,17 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
     self.init_components(**properties)
 
     domenica = anvil.server.call("get_domenica")
-    ind = anvil.server.call('get_indice')
-    self.lista.items = ind
+    indice = anvil.server.call('get_indice')
+    self.lista.items = indice
+
+    module.domenica.clear()
+    for row in domenica:
+      module.domenica.append({"titolo": row["titolo"],
+                              "tonalita": row["tonalita"],
+                              "modo": row["modo"],
+                              "num": row["num"]})
+
+    self.domenica.items = module.domenica
     
     # Any code you write here will run before the form opens.
 
@@ -27,29 +37,18 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
       anvil.server.call("reset_domenica")
     pass
 
-  def avanti_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.ins.visible = True
-    self.domenica.visible = True
-    self.salva.visible = True
-    dom = anvil.server.call("get_domenica")
-    for i in dom:
-      anvil.server.call("num_domenica",i["titolo"],0)
-    self.domenica.items = dom
-    pass
-
   def salva_click(self, **event_args):
     """This method is called when the button is clicked"""
-    lista = []
-    items = self.domenica.items
-    for item in items:
-      tit = item["titolo"]
-      ton = item["ton"]
-      num = item["num"]
-      lista.append([tit.text,ton.selected_value,num.selected_value])
-    if anvil.server.call("check_domenica",lista):
-      alert("Check OK")
-      # anvil.server.call("reset_domenica")
+    a = module.check_domenica(module.domenica)
+    domenica = a[1]
+    
+    if a[0]:
+      anvil.server.call("reset_domenica")
+      for canto in domenica:
+        anvil.server.call("new_row_domenica",canto["titolo"],canto["tonalita"],canto["modo"],canto["num"])
+      open_form("editor")
+    else:
+      alert("Ordinare correttamente i canti")
     pass
 
   def back_click(self, **event_args):
@@ -68,7 +67,6 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
       open_form("main")
     pass
 
-
-
-  
-
+  def refresh(self):
+    self.refresh_data_bindings()
+    self.domenica.items = module.domenica

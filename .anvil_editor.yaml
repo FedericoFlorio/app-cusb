@@ -20,7 +20,8 @@ unique_ids:
     libretto: '1696000604728930176251109.7025'
     canti_domenica_editor: '1696233875119386166154861.3584'
     editor: '1695489848061458662481527.15186'
-  modules: {}
+  modules:
+    module: '1696347234367652810053717.3695'
   server_modules:
     ServerModule1: '1695736932048592438478707.8512'
   assets:

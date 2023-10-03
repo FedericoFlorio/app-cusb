@@ -169,7 +169,7 @@ components:
   - type: RepeatingPanel
     properties: {item_template: editor.ItemTemplate4}
     name: lista
-    layout_properties: {grid_position: 'BVVPDS,HMBDNM'}
+    layout_properties: {grid_position: 'RKPJFT,MHOJOW', column: null}
 - type: FlowPanel
   properties: {}
   name: navbar_links
