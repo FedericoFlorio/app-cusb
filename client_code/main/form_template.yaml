@@ -28,6 +28,7 @@ components:
         background: '', bold: false, underline: false, icon: ''}
       name: button_canti
       layout_properties: {grid_position: 'CUHEFD,KLYDGA'}
+      event_bindings: {click: button_canti_click}
     - type: Button
       properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Editor canti, font_size: null, font: '',

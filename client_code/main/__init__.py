@@ -30,5 +30,11 @@ class main(mainTemplate):
     open_form("libretto")
     pass
 
+  def button_canti_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("canti_domenica")
+    pass
+
+
 
 
