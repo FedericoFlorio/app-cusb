@@ -16,14 +16,18 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
 
     domenica = anvil.server.call("get_domenica")
     indice = anvil.server.call('get_indice')
+    indice_titoli = [indice[i]["titolo"] for i in range(len(indice))]
     self.lista.items = indice
 
     module.domenica.clear()
     for row in domenica:
-      module.domenica.append({"titolo": row["titolo"],
-                              "tonalita": row["tonalita"],
-                              "modo": row["modo"],
-                              "num": row["num"]})
+      if row['titolo'] in indice_titoli:
+        module.domenica.append({"titolo": row["titolo"],
+                                "tonalita": row["tonalita"],
+                                "modo": row["modo"],
+                                "num": row["num"]})
+      else:
+        anvil.server.call('del_row_domenica',row["titolo"])
 
     self.domenica.items = module.domenica
     

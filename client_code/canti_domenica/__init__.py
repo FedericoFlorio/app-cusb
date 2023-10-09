@@ -14,8 +14,9 @@ class canti_domenica(canti_domenicaTemplate):
     self.init_components(**properties)
 
     global text
+    text = ""
     global chords
-    ind = anvil.server.call('get_indice')
+    chords = ""
     domenica = anvil.server.call("get_domenica")
 
     for canto in domenica:
@@ -51,14 +52,15 @@ class canti_domenica(canti_domenicaTemplate):
           testo += (line.replace("\l ","") + "\n")
           accordi += (line.replace("\l ","") + "\n")
         elif s == "$":
-          testo += "\n"
-          accordi += "\n"
+          testo += "&nbsp;\n"
+          accordi += "&nbsp;\n"
         elif s == "$$":
           flag = not flag
-          testo += "\n"
-          accordi += "\n"
-        text += (testo + "\n\n\n")
-        chords += (accordi + "\n\n\n")
+          testo += "&nbsp;\n"
+          accordi += "&nbsp;\n"
+
+      text += testo + "&nbsp;\n&nbsp;\n&nbsp;\n"
+      chords += accordi + "&nbsp;\n&nbsp;\n&nbsp;\n"
 
     self.testo.font = "Arial"
     self.testo.font_size = 18

@@ -29,6 +29,7 @@ class ItemTemplate4(ItemTemplate4Template):
              buttons = [("Sì",True),("No",False)])
     if c and t.text == titolo:
       anvil.server.call("del_row_indice",titolo)
+      anvil.server.call("del_row_domenica",titolo)
       folder = app_files.app.get(titolo)
       folder.delete()
       open_form("editor")

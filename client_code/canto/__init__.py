@@ -60,12 +60,12 @@ class canto(cantoTemplate):
         testo += (line.replace("\l ","") + "\n")
         accordi += (line.replace("\l ","") + "\n")
       elif s == "$":
-        testo += "\n"
-        accordi += "\n"
+        testo += "&nbsp;\n"
+        accordi += "&nbsp;\n"
       elif s == "$$":
         flag = not flag
-        testo += "\n"
-        accordi += "\n"
+        testo += "&nbsp;\n"
+        accordi += "&nbsp;\n"
 
     self.testo.font = "Arial"
     self.testo.font_size = 18
