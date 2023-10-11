@@ -34,6 +34,7 @@ class canto(cantoTemplate):
     global text
     text = f_content.decode('utf-8')
 
+    global lines
     lines = text.split("\n")
     global testo
     global accordi
