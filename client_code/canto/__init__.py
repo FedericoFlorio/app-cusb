@@ -27,21 +27,35 @@ class canto(cantoTemplate):
       if row['titolo'] == titolo:
         tr.ton = row['tonalita']
         tonalita = ton[tr.ton]
-        tr.mode = mod[row['modo']]
+        tr.mode = row['modo']
+        print(tr.mode)
         
     self.tonalita.text = tonalita
-    self.modo.text = tr.mode
+    self.modo.text = mod[tr.mode]
     
     folder = app_files.app.get(titolo)
     f = folder.get(titolo+".txt")
     f_content = f.get_bytes()
     global text
     text = f_content.decode('utf-8')
+    tr.testo = text
 
     global lines
-    lines = text.split("\n")
     global testo
     global accordi
+
+    disp = self.display(text)
+    testo = disp[0]
+    accordi = disp[1]
+
+    self.testo.font = "Arial"
+    self.testo.font_size = 18
+    self.testo.content = testo
+
+    # Any code you write here will run before the form opens.
+
+  def display(self,text):
+    lines = text.split("\n")
     testo = ""
     accordi = ""
     flag = False
@@ -72,13 +86,8 @@ class canto(cantoTemplate):
         testo += "&nbsp;\n"
         accordi += "&nbsp;\n"
 
-    self.testo.font = "Arial"
-    self.testo.font_size = 18
-    self.testo.content = testo
-    tr.testo = accordi
-
-    # Any code you write here will run before the form opens.
-
+    return (testo, accordi)
+  
   def accordi_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
     if self.accordi.checked:
@@ -122,20 +131,16 @@ class canto(cantoTemplate):
   def plus_click(self, **event_args):
     """This method is called when the button is clicked"""
     tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,+1)
-    self.testo.content = tr.testo
+    self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
+    tr.ton = (tr.ton + 1)%12
+    self.testo.content = self.display(tr.testo)[1]
     self.tonalita.text = ton[tr.ton]
     pass
 
   def minus_click(self, **event_args):
     """This method is called when the button is clicked"""
     tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,-1)
-    self.testo.content = tr.testo
-    self.tonalita.text = ton[tr.ton]
+    self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
+    tr.ton = (tr.ton - 1)%12
+    self.testo.content = self.display(tr.testo)[1]
     pass
-
-
-
-
-
-
-
