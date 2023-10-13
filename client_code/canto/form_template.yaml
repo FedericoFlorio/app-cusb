@@ -50,6 +50,7 @@ components:
       underline: false, icon: 'fa:minus'}
     name: minus
     layout_properties: {grid_position: 'WZUDCV,JZYPTN'}
+    event_bindings: {click: minus_click}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -64,6 +65,7 @@ components:
       underline: false, icon: 'fa:plus'}
     name: plus
     layout_properties: {grid_position: 'WZUDCV,ZSFSHE'}
+    event_bindings: {click: plus_click}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,

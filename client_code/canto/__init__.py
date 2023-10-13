@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .. import transposer_module as tr
 
 class canto(cantoTemplate):
   def __init__(self, **properties):
@@ -18,15 +19,18 @@ class canto(cantoTemplate):
 
     self.titolo.text = titolo
 
+    global ton
     ton = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
     mod = {"M":"maggiore", "m":"minore"}
     ind = anvil.server.call('get_indice')
     for row in ind:
       if row['titolo'] == titolo:
-        tonalita = ton[row['tonalita']]
-        modo = mod[row['modo']]
+        tr.ton = row['tonalita']
+        tonalita = ton[tr.ton]
+        tr.mode = mod[row['modo']]
+        
     self.tonalita.text = tonalita
-    self.modo.text = modo
+    self.modo.text = tr.mode
     
     folder = app_files.app.get(titolo)
     f = folder.get(titolo+".txt")
@@ -71,6 +75,7 @@ class canto(cantoTemplate):
     self.testo.font = "Arial"
     self.testo.font_size = 18
     self.testo.content = testo
+    tr.testo = accordi
 
     # Any code you write here will run before the form opens.
 
@@ -113,6 +118,22 @@ class canto(cantoTemplate):
     """This method is called when the button is clicked"""
     self.testo.font_size += 1
     pass
+
+  def plus_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,+1)
+    self.testo.content = tr.testo
+    self.tonalita.text = ton[tr.ton]
+    pass
+
+  def minus_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,-1)
+    self.testo.content = tr.testo
+    self.tonalita.text = ton[tr.ton]
+    pass
+
+
 
 
 
