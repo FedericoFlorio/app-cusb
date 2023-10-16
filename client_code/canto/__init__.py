@@ -20,7 +20,8 @@ class canto(cantoTemplate):
     self.titolo.text = titolo
 
     global ton
-    ton = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
+    ton = {"M" : ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"],
+           "m" : ["DO","DO#","RE","MIb","MI","FA","FA#","SOL","SOL#","LA","SIb","SI"]}
     mod = {"M":"maggiore", "m":"minore"}
     ind = anvil.server.call('get_indice')
     for row in ind:
@@ -28,7 +29,6 @@ class canto(cantoTemplate):
         tr.ton = row['tonalita']
         tonalita = ton[tr.ton]
         tr.mode = row['modo']
-        print(tr.mode)
         
     self.tonalita.text = tonalita
     self.modo.text = mod[tr.mode]
