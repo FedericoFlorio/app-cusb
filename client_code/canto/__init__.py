@@ -45,7 +45,7 @@ class canto(cantoTemplate):
     accordi = disp[1]
 
     self.testo.font = "Arial"
-    self.testo.font_size = 18
+    self.testo.font_size = 14
     self.testo.content = testo
 
     # Any code you write here will run before the form opens.
@@ -87,20 +87,22 @@ class canto(cantoTemplate):
   def accordi_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
     if self.accordi.checked:
+      self.outlined_card_2.visible = True
       self.tonalita.visible = True
       self.modo.visible = True
       self.plus.visible = True
       self.minus.visible = True
       self.testo.font = "Roboto Mono"
-      self.testo.font_size = 14
+      self.testo.font_size = 12
       self.testo.content = self.display(tr.testo)[1]
     else:
+      self.outlined_card_2.visible = False
       self.tonalita.visible = False
       self.modo.visible = False
       self.plus.visible = False
       self.minus.visible = False
       self.testo.font = "Arial"
-      self.testo.font_size = 18
+      self.testo.font_size = 14
       self.testo.content = self.display(tr.testo)[0]
     pass
 

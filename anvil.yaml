@@ -130,7 +130,10 @@ db_schema:
       admin_ui: {width: 200, order: 3}
       type: string
     - name: tonalita
-      admin_ui: {order: 1.5, width: 200}
+      admin_ui: {order: 1.5, width: 118}
+      type: number
+    - name: tonalita_originale
+      admin_ui: {order: 2.25, width: 141}
       type: number
     title: canti_domenica
 uplink_visible: true

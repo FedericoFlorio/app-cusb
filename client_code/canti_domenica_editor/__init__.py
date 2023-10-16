@@ -24,6 +24,7 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
       if row['titolo'] in indice_titoli:
         module.domenica.append({"titolo": row["titolo"],
                                 "tonalita": row["tonalita"],
+                                "tonalita_originale": row["tonalita"],
                                 "modo": row["modo"],
                                 "num": row["num"]})
       else:
@@ -49,7 +50,7 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
     if a[0]:
       anvil.server.call("reset_domenica")
       for canto in domenica:
-        anvil.server.call("new_row_domenica",canto["titolo"],canto["tonalita"],canto["modo"],canto["num"])
+        anvil.server.call("new_row_domenica",canto["titolo"],canto["tonalita"],canto["tonalita_originale"],canto["modo"],canto["num"])
       open_form("editor")
     else:
       alert("Ordinare correttamente i canti")
