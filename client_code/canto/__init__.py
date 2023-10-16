@@ -117,18 +117,20 @@ class canto(cantoTemplate):
   def plus_click(self, **event_args):
     """This method is called when the button is clicked"""
     tr.ton = (tr.ton + 1)%12
-    tr.testo = tr.Transposer(tr.testo.split("\n"),tr.ton,tr.mode,+1)
-    self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
-    tr.ton = (tr.ton + 1)%12
+    shift = (tr.ton-tr.ton_orig)%12
+    transposer = tr.Transposer(tr.ton_orig,tr.mode)
+    tr.testo = transposer.convert(tr.testo_base,shift)
+    self.tonalita.text = tr.newTon(tr.ton,tr.mode)
     self.testo.content = self.display(tr.testo)[1]
-    self.tonalita.text = ton[tr.ton]
     pass
 
   def minus_click(self, **event_args):
     """This method is called when the button is clicked"""
-    tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,-1)
-    self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
     tr.ton = (tr.ton - 1)%12
+    shift = (tr.ton-tr.ton_orig)%12
+    transposer = tr.Transposer(tr.ton_orig,tr.mode)
+    tr.testo = transposer.convert(tr.testo_base,shift)
+    self.tonalita.text = tr.newTon(tr.ton,tr.mode)
     self.testo.content = self.display(tr.testo)[1]
     pass
 

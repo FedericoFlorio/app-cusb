@@ -12,17 +12,16 @@ mode = ""
 testo_base = ""
 testo = ""
 
-def newTon(ton,mode,shift):
+def newTon(ton,mode):
   tonalita = {"M" : ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"],
               "m" : ["DO","DO#","RE","MIb","MI","FA","FA#","SOL","SOL#","LA","SIb","SI"]}
-  ton_new = tonalita[mode][(ton+shift)%12]
-  return ton_new
+  return tonalita[mode][ton]
 
 class Transposer():
-  def __init__(self, ton_old, modo, shift):
+  def __init__(self, ton_old, modo):
     self.ton_old = ton_old
     self.modo = modo
-    self.shift = shift
+    self.shift = 0
     self.ton_new = (self.ton_old + self.shift) % 12
     self.encode = ["\intro", "\c", " Intro", " Outro", ":"]
     self.join = ["/", "_"]
@@ -38,7 +37,7 @@ class Transposer():
   def isIntro(self, s):
     is_in = (s.split()[0] == "\intro")
     if is_in == True:
-      self.text_new += "\intro Intro: "
+      self.text_new += "\intro "
     return is_in
 
   def isOutro(self, s):
@@ -104,14 +103,16 @@ class Transposer():
     else:
       return line + "\n"
 
-  def convert(self, fin, fout):
-    with open(fin, "r") as file:
-      lines = file.readlines()
-    with open(fout, "w") as file:
-      for line in lines:
-        self.text_new = ""
-        file.write(self.check_n_transpose(line))
-    return
+  def convert(self, text_in, shift):
+    text_out = ""
+    self.shift = shift
+    self.ton_new = (self.ton_old + self.shift) % 12
+    lines = text_in.split("\n")
+    text_out = ""
+    for line in lines:
+      self.text_new = ""
+      text_out += self.check_n_transpose(line)
+    return text_out.strip("\n")
     
   def rebuild(self, line_old, line_new):   # RIAGGIUNGO PARENTESI
 
