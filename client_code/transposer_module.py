@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
+ton_orig = 0
 ton = 0
 mode = ""
 testo_base = ""
@@ -18,15 +19,17 @@ def newTon(ton,mode,shift):
   return ton_new
 
 class Transposer():
-  def __init__(self, ton_old, shift):
+  def __init__(self, ton_old, modo, shift):
     self.ton_old = ton_old
+    self.modo = modo
     self.shift = shift
     self.ton_new = (self.ton_old + self.shift) % 12
     self.encode = ["\intro", "\c", " Intro", " Outro", ":"]
     self.join = ["/", "_"]
     self.text_new = ""
-    self.tonalita = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
-    self.tonalita_cast = [0,1,0,1,0,1,0,0,1,0,1,0]  # 0=#, 1=b
+    self.tonalita = {"M" : ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"],
+                     "m" : ["DO","DO#","RE","MIb","MI","FA","FA#","SOL","SOL#","LA","SIb","SI"]}
+    self.tonalita_cast = {"M" : [0,1,0,1,0,1,0,0,1,0,1,0], "m" : [1,0,1,1,0,1,0,1,0,0,1,0]}  # 0=#, 1=b
     self.diesis = ["DO","DO#","RE","RE#","MI","FA","FA#","SOL","SOL#","LA","LA#","SI"]
     self.bemolle = ["DO","REb","RE","MIb","MI","FA","SOLb","SOL","LAb","LA","SIb","SI"]
     self.ACC = ["DO", "RE", "MI", "FA", "SOL", "LA", "SI", "#", "b"]
@@ -185,9 +188,9 @@ class Transposer():
       if base in self.diesis or base in self.bemolle:
         chord_old = self.ton2num(base)
         chord_new = (chord_old + self.shift) % 12
-        if self.tonalita_cast[self.ton_new] == 0:
+        if self.tonalita_cast[self.modo][self.ton_new] == 0:
           base_new = self.diesis[chord_new]
-        elif self.tonalita_cast[self.ton_new] == 1:
+        elif self.tonalita_cast[self.modo][self.ton_new] == 1:
           base_new = self.bemolle[chord_new]
       else:
         base_new = base

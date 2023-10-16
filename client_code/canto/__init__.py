@@ -26,25 +26,21 @@ class canto(cantoTemplate):
     ind = anvil.server.call('get_indice')
     for row in ind:
       if row['titolo'] == titolo:
-        tr.ton = row['tonalita']
-        tonalita = ton[tr.ton]
+        tr.ton_orig = row['tonalita']
+        tr.ton = tr.ton_orig
         tr.mode = row['modo']
         
-    self.tonalita.text = tonalita
+    self.tonalita.text = ton[tr.mode][tr.ton]
     self.modo.text = mod[tr.mode]
     
     folder = app_files.app.get(titolo)
     f = folder.get(titolo+".txt")
     f_content = f.get_bytes()
     global text
-    text = f_content.decode('utf-8')
-    tr.testo = text
-
-    global lines
-    global testo
-    global accordi
-
-    disp = self.display(text)
+    tr.testo_base = f_content.decode('utf-8')
+    tr.testo = tr.testo_base
+    
+    disp = self.display(tr.testo)
     testo = disp[0]
     accordi = disp[1]
 
@@ -97,7 +93,7 @@ class canto(cantoTemplate):
       self.minus.visible = True
       self.testo.font = "Roboto Mono"
       self.testo.font_size = 14
-      self.testo.content = accordi
+      self.testo.content = self.display(tr.testo)[1]
     else:
       self.tonalita.visible = False
       self.modo.visible = False
@@ -105,17 +101,7 @@ class canto(cantoTemplate):
       self.minus.visible = False
       self.testo.font = "Arial"
       self.testo.font_size = 18
-      self.testo.content = testo
-    pass
-
-  def home_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form("main")
-    pass
-
-  def back_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form("libretto")
+      self.testo.content = self.display(tr.testo)[0]
     pass
 
   def font_minus_click(self, **event_args):
@@ -130,7 +116,8 @@ class canto(cantoTemplate):
 
   def plus_click(self, **event_args):
     """This method is called when the button is clicked"""
-    tr.testo = tr.transpose(tr.testo.split("\n"),tr.ton,tr.mode,+1)
+    tr.ton = (tr.ton + 1)%12
+    tr.testo = tr.Transposer(tr.testo.split("\n"),tr.ton,tr.mode,+1)
     self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
     tr.ton = (tr.ton + 1)%12
     self.testo.content = self.display(tr.testo)[1]
@@ -143,4 +130,14 @@ class canto(cantoTemplate):
     self.tonalita.text = tr.newTon(tr.ton,tr.mode,-1)
     tr.ton = (tr.ton - 1)%12
     self.testo.content = self.display(tr.testo)[1]
+    pass
+
+  def home_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("main")
+    pass
+
+  def back_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("libretto")
     pass
