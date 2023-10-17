@@ -15,16 +15,14 @@ class editor(editorTemplate):
     # Visualizzazione indice
     ind = anvil.server.call('get_indice')
     self.lista.items = ind
-    # Login
-    if anvil.users.login_with_form([allow_cancel=True]) is None:
-      open_form("main")
+    
     # Creazione tasti
     self.modo.items = ["M","m"]
     self.modo.selected_value = None
     self.tonalita.items = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
     self.tonalita.selected_value = None
-
-    # Any code you write here will run before the form opens.
+  
+      # Any code you write here will run before the form opens.
 
   def get_title(self):  # Estrae il titolo di un file caricato
     f = self.carica.file
