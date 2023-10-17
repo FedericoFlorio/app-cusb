@@ -15,7 +15,7 @@ components:
     components:
     - type: ColumnPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: outlined_card_5
       layout_properties: {grid_position: 'ZZVJUQ,BZRGLA'}
@@ -44,7 +44,7 @@ components:
           layout_properties: {grid_position: 'PLVPNX,LJZNGC'}
     - type: ColumnPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: outlined_card_6
       layout_properties: {grid_position: 'ZZVJUQ,CKFLEK'}
@@ -73,7 +73,7 @@ components:
           layout_properties: {grid_position: 'JVRTUK,PDECDV'}
     - type: ColumnPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
         spacing_below: small, background: ''}
       name: outlined_card_7
       layout_properties: {grid_position: 'ZZVJUQ,BMUMVD'}

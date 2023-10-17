@@ -1,6 +1,8 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"NVQQOO":40,"XPKCQJ":20}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"NVQQOO":40,"XPKCQJ":20}',
+    spacing_below: small, background: ''}
 components:
 - type: Label
   properties: {}

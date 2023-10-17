@@ -4,47 +4,44 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"YOPWEU":30,"YCXLSH":36,"DDGBUK":35,"RWLCRH":30}'}
+  properties: {col_widths: '{"DDGBUK":25,"BGDWEB":37,"BAEAQE":35,"AXGYIM":25,"BJSBSQ":35}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
   - type: ColumnPanel
     properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"NTKJHX":25,"BNMKGL":15,"AIFMEZ":20}',
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"NTKJHX":30,"PEHQIH":40,"JVGTRR":20,"AEVELF":30}',
       spacing_below: small, background: ''}
     name: outlined_card_1
     layout_properties: {grid_position: 'XPSLKE,DDGBUK', full_width_row: false}
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Dimensione testo:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        visible: true, text: 'Dimensione testo:', font_size: null, font: '', spacing_above: none,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: font_dim
-      layout_properties: {grid_position: 'WZXXCC,NTKJHX', full_width_row: false}
+      layout_properties: {grid_position: 'JKNJIU,PEHQIH WZXXCC,NTKJHX', full_width_row: false}
     - type: Button
-      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:minus'}
       name: font_minus
-      layout_properties: {grid_position: 'WZXXCC,BNMKGL', full_width_row: false}
+      layout_properties: {grid_position: 'JKNJIU,PEHQIH WZXXCC,AEVELF', full_width_row: false}
       event_bindings: {click: font_minus_click}
     - type: Button
-      properties: {role: filled-button, align: left, tooltip: '', border: '', enabled: true,
+      properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:plus'}
       name: font_plus
-      layout_properties: {grid_position: 'WZXXCC,AIFMEZ', full_width_row: false}
+      layout_properties: {grid_position: 'JKNJIU,JVGTRR', full_width_row: false}
       event_bindings: {click: font_plus_click}
   - type: ColumnPanel
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
-      spacing_below: small, background: ''}
+    properties: {}
     name: column_panel_1
-    layout_properties: {grid_position: 'XPSLKE,YOPWEU', full_width_row: false}
-    components: []
+    layout_properties: {grid_position: 'XPSLKE,BAEAQE', full_width_row: false}
   - type: CheckBox
     properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
       foreground: '', allow_indeterminate: false, visible: true, text: Visualizza accordi,
@@ -55,47 +52,49 @@ components:
     event_bindings: {change: accordi_change}
   - type: ColumnPanel
     properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: false,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"LXTCBC":10,"CLFFHC":15,"YDSYPS":20,"WPYBXS":15}',
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"LXTCBC":8,"CLFFHC":19,"QXENCR":40,"FDNHGP":20}',
       spacing_below: small, background: ''}
     name: outlined_card_2
-    layout_properties: {grid_position: 'WZUDCV,RWLCRH'}
+    layout_properties: {grid_position: 'VGQKBZ,AXGYIM', full_width_row: false}
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: false, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        visible: false, text: '', font_size: null, font: '', spacing_above: none,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: tonalita
-      layout_properties: {grid_position: 'IFYZNP,LXTCBC'}
+      layout_properties: {grid_position: 'RPHJGB,QXENCR IFYZNP,LXTCBC'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: false, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        visible: false, text: '', font_size: null, font: '', spacing_above: none,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: modo
-      layout_properties: {grid_position: 'IFYZNP,CLFFHC'}
+      layout_properties: {grid_position: 'RPHJGB,QXENCR IFYZNP,CLFFHC'}
     - type: Button
-      properties: {role: tonal-button, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: false, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: top, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:minus'}
       name: minus
-      layout_properties: {grid_position: 'IFYZNP,YDSYPS'}
+      layout_properties: {grid_position: 'RPHJGB,QXENCR IFYZNP,YVZNQK'}
       event_bindings: {click: minus_click}
     - type: Button
-      properties: {role: tonal-button, align: left, tooltip: '', border: '', enabled: true,
+      properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: false, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: top, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:plus'}
       name: plus
-      layout_properties: {grid_position: 'IFYZNP,WPYBXS'}
+      layout_properties: {grid_position: 'RPHJGB,FDNHGP'}
       event_bindings: {click: plus_click}
   - type: ColumnPanel
     properties: {}
-    name: column_panel_1_copy
-    layout_properties:
-      col_widths: {}
-      grid_position: WZUDCV,YCXLSH
+    name: column_panel_3
+    layout_properties: {grid_position: 'VGQKBZ,BJSBSQ', full_width_row: false}
+  - type: ColumnPanel
+    properties: {}
+    name: column_panel_2
+    layout_properties: {grid_position: 'WZUDCV,BGDWEB'}
   - type: RichText
     properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
       foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,

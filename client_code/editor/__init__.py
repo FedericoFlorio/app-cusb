@@ -16,7 +16,8 @@ class editor(editorTemplate):
     ind = anvil.server.call('get_indice')
     self.lista.items = ind
     # Login
-    anvil.users.login_with_form()
+    if anvil.users.login_with_form([allow_cancel=True]) is None:
+      open_form("main")
     # Creazione tasti
     self.modo.items = ["M","m"]
     self.modo.selected_value = None

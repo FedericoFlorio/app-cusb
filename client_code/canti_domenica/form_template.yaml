@@ -10,7 +10,7 @@ components:
   components:
   - type: ColumnPanel
     properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"FPXHRY":25,"FHVTKP":15,"PXAXBO":20}',
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"FPXHRY":25,"FHVTKP":15,"PXAXBO":20}',
       spacing_below: small, background: ''}
     name: outlined_card_1
     layout_properties: {grid_position: 'XPSLKE,XWFQJW'}
