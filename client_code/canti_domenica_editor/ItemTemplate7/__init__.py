@@ -36,10 +36,12 @@ class ItemTemplate7(ItemTemplate7Template):
       if self.titolo.text == module.domenica[i]["titolo"]:
         titolo = module.domenica[i]["titolo"]
         tonalita = module.domenica[i]["tonalita"]
+        tonalita_originale = module.domenica[i]["tonalita_originale"]
         modo = module.domenica[i]["modo"]
         num = int(self.num.selected_value)
         module.domenica[i] = {"titolo": titolo,
                               "tonalita": tonalita,
+                              "tonalita_originale": tonalita_originale,
                               "modo": modo,
                               "num": num}
         break

@@ -50,6 +50,7 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
     if a[0]:
       anvil.server.call("reset_domenica")
       for canto in domenica:
+        print(canto)
         anvil.server.call("new_row_domenica",canto["titolo"],canto["tonalita"],canto["tonalita_originale"],canto["modo"],canto["num"])
       open_form("editor")
     else:

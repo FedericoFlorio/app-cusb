@@ -52,7 +52,7 @@ def check_format(s):
     err = 4
   for line in body:
     w = line.split()[0]
-    if w != "\l" and w != "\c" and w != "$" and w != "$$":
+    if w != "\l" and w != "\c" and w != "$" and w != "$$" and w != "\outro":
       err = 5
   return err
 

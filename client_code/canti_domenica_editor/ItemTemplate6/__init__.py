@@ -27,11 +27,12 @@ class ItemTemplate6(ItemTemplate6Template):
     ind = anvil.server.call("get_indice")
     for row in ind:
       if row["titolo"] == self.titolo.text:
-        tonalita = row["tonalita"]
+        tonalita_originale = row["tonalita"]
         modo = row["modo"]
         
     canto = {"titolo": self.titolo.text,
-             "tonalita": tonalita,
+             "tonalita": tonalita_originale,
+             "tonalita_originale": tonalita_originale,
              "modo": modo,
              "num": 0}
 
