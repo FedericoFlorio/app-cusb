@@ -80,6 +80,8 @@ class canti_domenica(canti_domenicaTemplate):
         flag = not flag
         testo += "&nbsp;\n"
         accordi += "&nbsp;\n"
+      elif s == "\outro":
+        accordi += "Finale: " + "**" + line.replace("\outro ","").replace(" ","&nbsp;") + "**\n"
 
     return (testo, accordi)
   
