@@ -23,7 +23,7 @@ class Transposer():
     self.modo = modo
     self.shift = 0
     self.ton_new = (self.ton_old + self.shift) % 12
-    self.encode = ["\intro", "\c", " Intro", " Outro", ":"]
+    self.encode = ["\intro", "\outro", "\c"]
     self.join = ["/", "_"]
     self.text_new = ""
     self.tonalita = {"M" : ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"],
@@ -43,8 +43,8 @@ class Transposer():
   def isOutro(self, s):
     is_out = (s.split()[0] == "\outro")
     if is_out == True:
-      self.text_new += "\outro Outro: "
-    return 
+      self.text_new += "\outro "
+    return is_out
 
   def isChords(self, s):
     is_c = (s.split()[0] == "\c")

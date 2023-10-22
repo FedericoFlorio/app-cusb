@@ -52,3 +52,10 @@ class ItemTemplate6(ItemTemplate6Template):
           break
       get_open_form().refresh()
     pass
+
+  def update(self):
+    if self.add.icon == "fa:minus":
+      self.titolo.background = "theme:On Primary"
+      self.background = "theme:On Primary"
+      self.add.icon = "fa:plus"
+      get_open_form().refresh()
