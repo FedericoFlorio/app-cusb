@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .. import transposer_module as tr
+from .. import module
 
 class canto(cantoTemplate):
   def __init__(self, **properties):
@@ -40,7 +41,7 @@ class canto(cantoTemplate):
     tr.testo_base = f_content.decode('utf-8')
     tr.testo = tr.testo_base
     
-    disp = self.display(tr.testo)
+    disp = module.display(tr.testo)
     testo = disp[0]
     accordi = disp[1]
 
@@ -49,42 +50,6 @@ class canto(cantoTemplate):
     self.testo.content = testo
 
     # Any code you write here will run before the form opens.
-
-  def display(self,text):
-    lines = text.split("\n")
-    testo = ""
-    accordi = ""
-    flag = False
-    for line in lines:
-      s = line.split()[0]
-      if s == "\head":
-        testo += ("## " + line.replace("\head ","") + "\n\n")
-        accordi += ("## " + line.replace("\head ","") + "\n\n")
-      elif s == "\intro":
-        accordi += ("Intro:  **" + line.replace("\intro ","") + "**" + "\n")
-      elif s == "\start":
-        accordi += "\n"
-      elif s == "\c":
-        if flag:
-          accordi += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-        accordi += ("**" + line.replace("\c ","").replace(" ","&nbsp;") + "**\n")
-      elif s == "\l":
-        if flag:
-          testo += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-          accordi += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-        testo += (line.replace("\l ","") + "\n")
-        accordi += (line.replace("\l ","") + "\n")
-      elif s == "$":
-        testo += "&nbsp;\n"
-        accordi += "&nbsp;\n"
-      elif s == "$$":
-        flag = not flag
-        testo += "&nbsp;\n"
-        accordi += "&nbsp;\n"
-      elif s == "\outro":
-        accordi += "Finale: " + "**" + line.replace("\outro ","").replace(" ","&nbsp;") + "**\n"
-
-    return (testo, accordi)
   
   def accordi_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
@@ -96,7 +61,7 @@ class canto(cantoTemplate):
       self.minus.visible = True
       self.testo.font = "Roboto Mono"
       self.testo.font_size = 12
-      self.testo.content = self.display(tr.testo)[1]
+      self.testo.content = module.display(tr.testo)[1]
     else:
       self.outlined_card_2.visible = False
       self.tonalita.visible = False
@@ -105,7 +70,7 @@ class canto(cantoTemplate):
       self.minus.visible = False
       self.testo.font = "Arial"
       self.testo.font_size = 14
-      self.testo.content = self.display(tr.testo)[0]
+      self.testo.content = module.display(tr.testo)[0]
     pass
 
   def font_minus_click(self, **event_args):
@@ -125,7 +90,7 @@ class canto(cantoTemplate):
     transposer = tr.Transposer(tr.ton_orig,tr.mode)
     tr.testo = transposer.convert(tr.testo_base,shift)
     self.tonalita.text = tr.newTon(tr.ton,tr.mode)
-    self.testo.content = self.display(tr.testo)[1]
+    self.testo.content = module.display(tr.testo)[1]
     pass
 
   def minus_click(self, **event_args):
@@ -135,7 +100,7 @@ class canto(cantoTemplate):
     transposer = tr.Transposer(tr.ton_orig,tr.mode)
     tr.testo = transposer.convert(tr.testo_base,shift)
     self.tonalita.text = tr.newTon(tr.ton,tr.mode)
-    self.testo.content = self.display(tr.testo)[1]
+    self.testo.content = module.display(tr.testo)[1]
     pass
 
   def home_click(self, **event_args):

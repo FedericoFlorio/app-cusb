@@ -54,8 +54,11 @@ def display(text):
       if flag:
         testo += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
         accordi += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-      testo += (line.replace("\l ","") + "\n")
+      testo += (line.replace("\l ","").replace("-","") + "\n")
       accordi += (line.replace("\l ","") + "\n")
+    elif s == "\cmt":
+      testo += ("_" + line.replace("\cmt ","").replace(" ","&nbsp;").replace("-","") + "_" + "\n")
+      accordi += ("_" + line.replace("\cmt ","").replace(" ","&nbsp;") + "_" + "\n")
     elif s == "$":
       testo += "&nbsp;\n"
       accordi += "&nbsp;\n"
