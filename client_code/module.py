@@ -43,7 +43,7 @@ def display(text):
       testo += ("## " + line.replace("\head ","") + "\n\n")
       accordi += ("## " + line.replace("\head ","") + "\n\n")
     elif s == "\intro":
-      accordi += ("Intro:  **" + line.replace("\intro ","").replace(" ","&nbsp;") + "**" + "\n")
+      accordi += ("Intro:  **" + line.replace("\intro ","").strip().replace(" ","&nbsp;") + "**" + "\n")
     elif s == "\start":
       accordi += "\n"
     elif s == "\c":
