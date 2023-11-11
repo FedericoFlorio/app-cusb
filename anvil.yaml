@@ -65,7 +65,7 @@ allow_embedding: false
 name: App CUSB
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
-metadata: {logo_img: 'asset:sb_logo.png'}
+metadata: {logo_img: 'asset:CUSB (1).png'}
 startup_form: null
 native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.com">
 
