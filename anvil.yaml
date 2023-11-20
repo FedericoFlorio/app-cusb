@@ -60,9 +60,9 @@ services:
       ownerNames: [Coro Universitario]
   server_config: {enc_delegation_refresh_token: CujOvPr/rbHBeFWg85VP1BLtEUjryt4MH51JdtIaqGkkgGSIVblgfUn4Cr/c8BFzdlIdLkyy/e5wI+8gk3lKVpXSBArT0BRkSjpWMFtskmSPXPnzj5CWtVAze0NKhqW8wNT5k30t/f66TIw2ABzAJ7t0hBb8N6S33jnHVQ4JFUVnPu2mxXT3AmOURwRIoAmXMS39xfhFL0cEgd4CnOYVFcimGteT7lS5CM+iiqCkTchBZI1ngYDmCmxszhG9dsCeY16KPuTVcp9PUiG0NHMWYJdxnGxxjg6c3ZWiglWJFGp9GvpfjeqIBJREastIrA==}
 startup: {type: form, module: main}
-package_name: App_CUSB___Backup
+package_name: App_CUSB___GitHub
 allow_embedding: false
-name: App CUSB - Backup
+name: App CUSB - GitHub
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
 metadata: {logo_img: 'asset:CUSB (1).png'}
