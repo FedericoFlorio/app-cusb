@@ -302,7 +302,7 @@ color_scheme:
       - {name: Primary Overlay 2, color: 'rgba(255, 181, 155, 0.08)'}
       - {name: Primary Overlay 3, color: 'rgba(255, 181, 155, 0.11)'}
   colors:
-  - {name: Primary, color: '#6750A4'}
+  - {name: Primary, color: '#FF8c00'}
   - {name: Primary Container, color: '#EADDFF'}
   - {name: On Primary, color: '#FFFFFF'}
   - {name: On Primary Container, color: '#21005E'}
