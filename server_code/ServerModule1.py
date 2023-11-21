@@ -44,6 +44,7 @@ def check_format(s):
   if title.split()[0] != "\head":
     err = 1
   if intro.split()[0] != "\intro":
+    if 
     err = 2
   if beg.split()[0] != "\start":
     print(beg.split()[0])
