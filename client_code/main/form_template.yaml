@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+  properties: {html: '@theme:standard-page.html', visible: true}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
