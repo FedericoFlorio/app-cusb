@@ -32,7 +32,7 @@ class Transposer():
     self.diesis = ["DO","DO#","RE","RE#","MI","FA","FA#","SOL","SOL#","LA","LA#","SI"]
     self.bemolle = ["DO","REb","RE","MIb","MI","FA","SOLb","SOL","LAb","LA","SIb","SI"]
     self.ACC = ["DO", "RE", "MI", "FA", "SOL", "LA", "SI", "#", "b"]
-    self.CHAR = ["m", "dim", "-", "maj", "+", "sdim", "sus", "add", "o", "/"]   # , "2", "4", "5", "6", "7", "9", "11", "13"
+    self.CHAR = ["-","sdim","dim","maj","sus","/","add","m","+","o","_"]   # , "2", "4", "5", "6", "7", "9", "11", "13"
 
   def isIntro(self, s):
     is_in = (s.split()[0] == "\intro")

@@ -38,13 +38,20 @@ def check_format(s):
   err = 0
   title = s[0]
   intro = s[1]
-  beg = s[2]
-  end = s[len(s)-1]
-  body = s[3:len(s)-1]
   if title.split()[0] != "\head":
     err = 1
-  if intro.split()[0] != "\intro":
-    err = 2
+  if intro.split()[0] == "\intro":
+    end = s[len(s)-1]
+    body = s[3:len(s)-1]
+    beg = s[2]
+  else:
+    if intro.split()[0] == "\start":
+      end = s[len(s)-1]
+      body = s[2:len(s)-1]
+      beg = s[1]
+    else:
+      err = 2
+
   if beg.split()[0] != "\start":
     print(beg.split()[0])
     err = 3
@@ -55,6 +62,15 @@ def check_format(s):
     if w != "\l" and w != "\c" and w != "$" and w != "$$" and w != "\outro" and w != "\cmt":
       err = 5
   return err
+
+@anvil.server.callable
+def mod_row_indice(old,new,ton,mod):
+  ind = get_indice()
+  for row in ind:
+    if row['titolo'] == old:
+      row['tonalita'] = ton
+      row['modo'] = mod
+      row['titolo'] = new
 
 @anvil.server.callable
 def mod_row_indice(old,new,ton,mod):
