@@ -127,6 +127,8 @@ class Transposer():
       if line_old[pos] == '(' or line_old[pos] == '[':
         pos = self.scrivi_parentesi(line_old, pos)
       else:
+        print(line_old_split)
+        print(index_old)
         l_old = len(line_old_split[index_old])
         l_new = len(line_new[index_new])
         if pos == 0:
