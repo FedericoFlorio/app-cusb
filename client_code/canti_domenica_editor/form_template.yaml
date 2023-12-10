@@ -58,6 +58,7 @@ components:
       background: ''}
     name: domenica
     layout_properties: {grid_position: 'VXJWSX,BIXIQL'}
+    data_bindings: []
   - type: Button
     properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: Salva, font_size: null, font: '', spacing_above: small,

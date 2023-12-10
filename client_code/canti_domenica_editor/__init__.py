@@ -25,7 +25,7 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
       if row['titolo'] in indice_titoli:
         module.domenica.append({"titolo": row["titolo"],
                                 "tonalita": row["tonalita"],
-                                "tonalita_originale": row["tonalita"],
+                                "tonalita_originale": row["tonalita_originale"],
                                 "modo": row["modo"],
                                 "num": row["num"]})
       else:
@@ -57,10 +57,8 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
     if a[0]:
       anvil.server.call("reset_domenica")
       domenica_table = anvil.server.call("get_domenica")
-      print("entrato if a[0]")
       
       for canto in domenica:
-        print("entrato for canto in domenica")
         anvil.server.call("new_row_domenica",canto["titolo"],canto["tonalita"],canto["tonalita_originale"],canto["modo"],canto["num"])
         titolo = canto['titolo']
         tonalita = canto['tonalita']
@@ -70,7 +68,6 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
         f = folder.get(titolo+".txt")
         f_content = f.get_bytes()
         song = f_content.decode('utf-8')
-        print("aaa" + song)
 
         if tonalita != tonalita_0:
           transposer = tr.Transposer(tonalita_0,modo)
@@ -84,9 +81,6 @@ class canti_domenica_editor(canti_domenica_editorTemplate):
         text += testo + "&nbsp;\n&nbsp;\n&nbsp;\n"
         chords += accordi + "&nbsp;\n&nbsp;\n&nbsp;\n"
 
-      print(text)
-      print("\n\n\n")
-      print(chords)
       folder = app_files.app.get("00_CANTI_DOMENICA")
       f_testo = folder.get("TESTI.txt")
       f_accordi = folder.get("ACCORDI.txt")
