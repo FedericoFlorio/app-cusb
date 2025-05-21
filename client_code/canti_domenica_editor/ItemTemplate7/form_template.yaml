@@ -1,65 +1,65 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{"WCJIZA":40,"FPVWXE":5,"JFARQK":10,"AGGEMI":5}'}
 components:
-- type: Label
-  properties: {}
-  name: titolo
+- data_bindings:
+  - {code: 'self.item[''titolo'']', property: text}
   layout_properties: {grid_position: 'MTSHBK,WCJIZA'}
-  data_bindings:
-  - {property: text, code: 'self.item[''titolo'']'}
-- type: DropDown
-  properties:
-    role: outlined
-    align: full
-    tooltip: ''
-    placeholder: ''
-    border: ''
-    enabled: true
-    foreground: ''
-    items: []
-    visible: true
-    font_size: null
-    font: ''
-    spacing_above: small
-    spacing_below: small
-    italic: false
-    background: ''
-    bold: false
-    underline: false
-    include_placeholder: false
-  name: tonalita
-  layout_properties: {grid_position: 'MTSHBK,JFARQK'}
-  data_bindings: []
-  event_bindings: {change: tonalita_change}
-- type: Label
+  name: titolo
   properties: {}
-  name: modo
-  layout_properties: {grid_position: 'MTSHBK,AGGEMI'}
-  data_bindings:
-  - {property: text, code: 'self.item[''modo'']'}
-- type: DropDown
+  type: Label
+- data_bindings: []
+  event_bindings: {change: tonalita_change}
+  layout_properties: {grid_position: 'MTSHBK,JFARQK'}
+  name: tonalita
   properties:
-    role: outlined
     align: full
-    tooltip: ''
-    placeholder: ''
-    border: ''
-    enabled: true
-    foreground: ''
-    items: []
-    visible: true
-    font_size: null
-    font: ''
-    spacing_above: small
-    spacing_below: small
-    italic: false
     background: ''
     bold: false
-    underline: false
+    border: ''
+    enabled: true
+    font: ''
+    font_size: null
+    foreground: ''
     include_placeholder: false
-  name: num
-  layout_properties: {grid_position: 'MTSHBK,FPVWXE'}
-  data_bindings: []
+    italic: false
+    items: []
+    placeholder: ''
+    role: outlined
+    spacing_above: small
+    spacing_below: small
+    tooltip: ''
+    underline: false
+    visible: true
+  type: DropDown
+- data_bindings:
+  - {code: 'self.item[''modo'']', property: text}
+  layout_properties: {grid_position: 'MTSHBK,AGGEMI'}
+  name: modo
+  properties: {}
+  type: Label
+- data_bindings: []
   event_bindings: {change: num_change}
+  layout_properties: {grid_position: 'MTSHBK,FPVWXE'}
+  name: num
+  properties:
+    align: full
+    background: ''
+    bold: false
+    border: ''
+    enabled: true
+    font: ''
+    font_size: null
+    foreground: ''
+    include_placeholder: false
+    italic: false
+    items: []
+    placeholder: ''
+    role: outlined
+    spacing_above: small
+    spacing_below: small
+    tooltip: ''
+    underline: false
+    visible: true
+  type: DropDown
+container:
+  properties: {col_widths: '{"WCJIZA":40,"FPVWXE":5,"JFARQK":10,"AGGEMI":5}'}
+  type: ColumnPanel
 is_package: true

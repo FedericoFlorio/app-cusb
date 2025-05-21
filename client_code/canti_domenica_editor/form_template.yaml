@@ -1,96 +1,67 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{"PCASSJ":40,"VAOXNQ":10,"GSPWUP":5,"QVTQCI":5}'}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - type: Button
-    properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Reset canti della domenica, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: reset
+- components:
+  - event_bindings: {click: reset_click}
     layout_properties: {grid_position: 'PNYKNY,UBFWPJ'}
-    event_bindings: {click: reset_click}
-  - type: RepeatingPanel
-    properties: {item_template: canti_domenica_editor.ItemTemplate6}
+    name: reset
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: tonal-button, spacing_above: small, spacing_below: small, text: Reset canti della domenica, tooltip: '', underline: false, visible: true}
+    type: Button
+  - layout_properties: {grid_position: 'AWRFZJ,IXELOS'}
     name: lista
-    layout_properties: {grid_position: 'AWRFZJ,IXELOS'}
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Specificare l'ordine dei canti selezionati, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
+    properties: {item_template: canti_domenica_editor.ItemTemplate6}
+    type: RepeatingPanel
+  - layout_properties: {grid_position: 'CQZGAB,MBHWIK'}
     name: ins
-    layout_properties: {grid_position: 'CQZGAB,MBHWIK'}
-  - type: ColumnPanel
-    properties: {}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Specificare l'ordine dei canti selezionati, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'HEABUC,PCASSJ'}
     name: column_panel_1
-    layout_properties: {grid_position: 'HEABUC,PCASSJ'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Tonalità, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'HEABUC,VAOXNQ'}
     name: tonalita_head
-    layout_properties: {grid_position: 'HEABUC,VAOXNQ'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Modo, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Tonalità, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'HEABUC,GSPWUP'}
     name: modo_head
-    layout_properties: {grid_position: 'HEABUC,GSPWUP'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Ordine, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Modo, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'HEABUC,QVTQCI'}
     name: num_head
-    layout_properties: {grid_position: 'HEABUC,QVTQCI'}
-  - type: RepeatingPanel
-    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
-      visible: true, spacing_above: small, spacing_below: small, item_template: canti_domenica_editor.ItemTemplate7,
-      background: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Ordine, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'VXJWSX,BIXIQL'}
     name: domenica
-    layout_properties: {grid_position: 'VXJWSX,BIXIQL'}
-  - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Salva, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:floppy-o'}
-    name: salva
+    properties: {background: '', border: '', foreground: '', item_template: canti_domenica_editor.ItemTemplate7, items: null, role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
+    type: RepeatingPanel
+  - event_bindings: {click: salva_click}
     layout_properties: {grid_position: 'AJEHNT,SVTQTB'}
-    event_bindings: {click: salva_click}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components:
-  - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:arrow-circle-left'}
+    name: salva
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:floppy-o', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Salva, tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"PCASSJ":40,"VAOXNQ":10,"GSPWUP":5,"QVTQCI":5}'}
+  type: ColumnPanel
+- components:
+  - event_bindings: {click: back_click}
+    layout_properties: {}
     name: back
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:arrow-circle-left', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+    type: Button
+  - event_bindings: {click: home_click}
     layout_properties: {}
-    event_bindings: {click: back_click}
-  - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:home'}
     name: home
-    layout_properties: {}
-    event_bindings: {click: home_click}
-- type: Label
-  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-    visible: true, text: Canti della domenica, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:home', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
   name: label_1
-  layout_properties: {slot: title}
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: headline, spacing_above: small, spacing_below: small, text: Canti della domenica, tooltip: '', underline: false, visible: true}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true
