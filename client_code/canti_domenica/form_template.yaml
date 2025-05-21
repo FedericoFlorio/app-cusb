@@ -1,75 +1,56 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{"YOPWEU":30,"XWFQJW":35}'}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - type: ColumnPanel
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"FPXHRY":25,"FHVTKP":15,"PXAXBO":20}',
-      spacing_below: small, background: ''}
-    name: outlined_card_1
-    layout_properties: {grid_position: 'XPSLKE,XWFQJW'}
-    components:
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Dimensione testo:', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'LWMPRO,FPXHRY'}
       name: font_dim
-      layout_properties: {grid_position: 'LWMPRO,FPXHRY'}
-    - type: Button
-      properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:minus'}
-      name: font_minus
+      properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Dimensione testo:', tooltip: '', underline: false, visible: true}
+      type: Label
+    - event_bindings: {click: font_minus_click}
       layout_properties: {grid_position: 'LWMPRO,FHVTKP'}
-      event_bindings: {click: font_minus_click}
-    - type: Button
-      properties: {role: filled-button, align: left, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:plus'}
-      name: font_plus
+      name: font_minus
+      properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:minus', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+      type: Button
+    - event_bindings: {click: font_plus_click}
       layout_properties: {grid_position: 'LWMPRO,PXAXBO'}
-      event_bindings: {click: font_plus_click}
-  - type: ColumnPanel
-    properties: {}
+      name: font_plus
+      properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:plus', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+      type: Button
+    layout_properties: {grid_position: 'XPSLKE,XWFQJW'}
+    name: outlined_card_1
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{"FPXHRY":25,"FHVTKP":15,"PXAXBO":20}', foreground: '', role: outlined-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: never}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'XPSLKE,YOPWEU'}
     name: column_panel_1
-    layout_properties: {grid_position: 'XPSLKE,YOPWEU'}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: Visualizza accordi,
-      font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-      background: '', bold: false, checked: false, underline: false}
-    name: accordi
+    properties: {}
+    type: ColumnPanel
+  - event_bindings: {change: accordi_change}
     layout_properties: {grid_position: 'KOXRAJ,MOSKEJ'}
-    event_bindings: {change: accordi_change}
-  - type: RichText
-    properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-      foreground: '', visible: true, font_size: null, content: '', font: '', spacing_above: small,
-      spacing_below: small, data: null, background: '', format: markdown}
+    name: accordi
+    properties: {align: left, allow_indeterminate: false, background: '', bold: false, border: '', checked: false, enabled: true, font: '', font_size: null, foreground: '', italic: false, role: null, spacing_above: small, spacing_below: small, text: Visualizza accordi, tooltip: '', underline: false, visible: true}
+    type: CheckBox
+  - layout_properties: {grid_position: 'HMTAIE,YPBBKW'}
     name: testo
-    layout_properties: {grid_position: 'HMTAIE,YPBBKW'}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components:
-  - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:home'}
-    name: home
+    properties: {align: left, background: '', border: '', content: '', data: null, enable_slots: true, font: '', font_size: null, foreground: '', format: markdown, role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
+    type: RichText
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"YOPWEU":30,"XWFQJW":35}'}
+  type: ColumnPanel
+- components:
+  - event_bindings: {click: home_click}
     layout_properties: {}
-    event_bindings: {click: home_click}
-- type: Label
+    name: home
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:home', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {slot: nav-right}
+  name: navbar_links
   properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
   name: titolo
-  layout_properties: {slot: title}
+  properties: {}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

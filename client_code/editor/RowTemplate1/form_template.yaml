@@ -1,10 +1,7 @@
-container: {type: DataRowPanel}
 components:
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:pencil'}
+- layout_properties: {column: NYVQZA}
   name: edit
-  layout_properties: {column: NYVQZA}
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:pencil', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Button
+container: {type: DataRowPanel}
 is_package: true

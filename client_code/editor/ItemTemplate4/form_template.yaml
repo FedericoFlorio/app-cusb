@@ -1,29 +1,21 @@
-container:
-  type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{"NVQQOO":40,"XPKCQJ":20}',
-    spacing_below: small, background: ''}
 components:
-- type: Label
-  properties: {}
-  name: label_1
+- data_bindings:
+  - {code: 'self.item[''titolo'']', property: text}
   layout_properties: {grid_position: 'SCKOBH,NVQQOO'}
-  data_bindings:
-  - {property: text, code: 'self.item[''titolo'']'}
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:pencil'}
-  name: button_1
+  name: label_1
+  properties: {}
+  type: Label
+- event_bindings: {click: button_1_click}
   layout_properties: {grid_position: 'SCKOBH,XPKCQJ'}
-  event_bindings: {click: button_1_click}
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: 'fa:trash'}
-  name: delete
+  name: button_1
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:pencil', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Button
+- event_bindings: {click: delete_click}
   layout_properties: {grid_position: 'SCKOBH,PEFYSE'}
-  event_bindings: {click: delete_click}
+  name: delete
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:trash', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Button
+container:
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{"NVQQOO":40,"XPKCQJ":20}', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: never}
+  type: ColumnPanel
 is_package: true

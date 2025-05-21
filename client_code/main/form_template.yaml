@@ -1,114 +1,60 @@
-is_package: true
+components: []
 container:
+  properties:
+    html: |-
+      <!DOCTYPE html>
+      <html lang="it">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="_/theme/style.css">
+          <title>C-USB App</title>
+        </head>
+        <body>
+          <header>
+            <div class="logo-open-box">
+              <div class="logo-box">
+                <div class="cover"></div>
+                <img id="C-logo" class="logo-img C" src="_/theme/C-nobg-viola.png">
+                <img id="cavo-logo" class="logo-img cavo" src="_/theme/cavo+oro-nobg-viola.png">
+                <img id="USB-logo" class="logo-img USB" src="_/theme/USB-nobg-viola.png">
+              </div>
+            </div>
+            <div class="title">
+              Coro Universitari San Bernardino
+            </div>
+          </header>
+
+          <!-- <nav></nav> -->
+
+          <main>
+            <div class="section">
+              <button class="sec-label" anvil-id="button_libretto">Libretto dei canti</button>
+              <div class="sec-description">Consulta il libretto con tutti i nostri canti</div>
+            </div>
+            <div class="section">
+              <button class="sec-label" anvil-id="button_canti">Canti della Domenica</button>
+              <div class="sec-description">Segui i canti aggiornati per ogni celebrazione</div>
+            </div>
+            <!-- <div class="section">
+            <button class="sec-label">Raccolte</button>
+            <div class="sec-description">Lorem, ipsum dolor.</div>
+          </div>
+            <div class="section">
+            <button class="sec-label">Eventi</button>
+            <div class="sec-description">descrizione</div>
+          </div> -->
+            <div class="section">
+              <button class="sec-label editor" anvil-id="button_editor">Editor canti</button>
+              <div class="sec-description">Scrivi nuovi canti (solo per admin)</div>
+            </div>
+          </main>
+
+          <!-- <aside></aside>
+
+          <footer></footer> -->
+
+        </body>
+      </html>
   type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
-components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: content_panel
-  layout_properties: {slot: default}
-  components:
-  - type: ColumnPanel
-    properties: {role: outlined-card, col_widths: '{}'}
-    name: outlined_card_1
-    layout_properties: {grid_position: 'WHMVNF,DUFQEW'}
-    components:
-    - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
-      name: outlined_card_5
-      layout_properties: {grid_position: 'ZZVJUQ,BZRGLA'}
-      components:
-      - type: Button
-        properties: {role: filled-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: Libretto dei canti,
-          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false, icon: ''}
-        name: button_libretto
-        layout_properties: {grid_position: 'PEZHKH,SSYAWB'}
-        event_bindings: {click: button_libretto_click}
-      - type: ColumnPanel
-        properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
-          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-          spacing_below: small, background: ''}
-        name: outlined_card_2
-        layout_properties: {grid_position: 'BTGHJZ,ENWYRZ'}
-        components:
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: Consulta il libretto con tutti i nostri canti, font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_libretto
-          layout_properties: {grid_position: 'PLVPNX,LJZNGC'}
-    - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
-      name: outlined_card_6
-      layout_properties: {grid_position: 'ZZVJUQ,CKFLEK'}
-      components:
-      - type: Button
-        properties: {role: filled-button, align: center, tooltip: '', border: '',
-          enabled: true, foreground: '', visible: true, text: Canti della domenica,
-          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-          italic: false, background: '', bold: false, underline: false, icon: ''}
-        name: button_canti
-        layout_properties: {grid_position: 'EBAUDW,SAAWMI'}
-        event_bindings: {click: button_canti_click}
-      - type: ColumnPanel
-        properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
-          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-          spacing_below: small, background: ''}
-        name: outlined_card_3
-        layout_properties: {grid_position: 'TQRZBE,KRLLYY'}
-        components:
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: Segui i canti aggiornati per ogni celebrazione, font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_canti
-          layout_properties: {grid_position: 'JVRTUK,PDECDV'}
-    - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: ''}
-      name: outlined_card_7
-      layout_properties: {grid_position: 'ZZVJUQ,BMUMVD'}
-      components:
-      - type: Button
-        properties: {role: tonal-button, align: center, tooltip: '', border: '', enabled: true,
-          foreground: '', visible: true, text: Editor canti, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        name: button_editor
-        layout_properties: {grid_position: 'JAWGDP,LAGDDX'}
-        event_bindings: {click: button_editor_click}
-      - type: ColumnPanel
-        properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
-          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-          spacing_below: small, background: ''}
-        name: outlined_card_4
-        layout_properties: {grid_position: 'JLRQKW,IERKOR'}
-        components:
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: Scrivi nuovi canti (solo per admin), font_size: null,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_editor
-          layout_properties: {grid_position: 'EWJDAT,LSRLOL'}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components: []
-- type: Label
-  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-    visible: true, text: Coro Universitari San Bernardino, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '',
-    bold: false, underline: false, icon: ''}
-  name: CUSB
-  layout_properties: {slot: title}
+is_package: true
